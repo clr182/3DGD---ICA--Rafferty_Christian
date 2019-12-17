@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Assets\Debug\Fonts\debugFont.spritefont</Source>
+      <Name>Assets\Debug\Fonts\debugFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Fonts\debugFont.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Fonts\hudFont.spritefont</Source>
+      <Name>Assets\Fonts\hudFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\hudFont.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Fonts\menu.spritefont</Source>
+      <Name>Assets\Fonts\menu</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\menu.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Fonts\mouse.spritefont</Source>
+      <Name>Assets\Fonts\mouse</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\mouse.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Debug\Textures\checkerboard.png</Source>
+      <Name>Assets\Debug\Textures\checkerboard</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Ground\foliage.png</Source>
+      <Name>Assets\Textures\Foliage\Ground\foliage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\foliage.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Ground\grass1.jpg</Source>
+      <Name>Assets\Textures\Foliage\Ground\grass1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass1.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Shrubs\shrub1.png</Source>
+      <Name>Assets\Textures\Foliage\Shrubs\shrub1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub1.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Shrubs\shrub2.png</Source>
+      <Name>Assets\Textures\Foliage\Shrubs\shrub2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub2.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Shrubs\shrub3.png</Source>
+      <Name>Assets\Textures\Foliage\Shrubs\shrub3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub3.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Trees\tree1.png</Source>
+      <Name>Assets\Textures\Foliage\Trees\tree1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree1.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Trees\tree2.png</Source>
+      <Name>Assets\Textures\Foliage\Trees\tree2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree2.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Trees\tree3.png</Source>
+      <Name>Assets\Textures\Foliage\Trees\tree3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree3.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Trees\tree4.png</Source>
+      <Name>Assets\Textures\Foliage\Trees\tree4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree4.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Trees\tree5.png</Source>
+      <Name>Assets\Textures\Foliage\Trees\tree5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree5.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Crates\crate1.jpg</Source>
+      <Name>Assets\Textures\Props\Crates\crate1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate1.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Crates\crate2.jpg</Source>
+      <Name>Assets\Textures\Props\Crates\crate2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate2.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\tv.png</Source>
+      <Name>Assets\Textures\Props\tv</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\tv.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\back.bmp</Source>
+      <Name>Assets\Textures\Skybox\back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\back.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\front.bmp</Source>
+      <Name>Assets\Textures\Skybox\front</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\front.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\ground.bmp</Source>
+      <Name>Assets\Textures\Skybox\ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\ground.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\left.bmp</Source>
+      <Name>Assets\Textures\Skybox\left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\left.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\right.bmp</Source>
+      <Name>Assets\Textures\Skybox\right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\right.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skybox\sky.bmp</Source>
+      <Name>Assets\Textures\Skybox\sky</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\sky.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\mouseicons.png</Source>
+      <Name>Assets\Textures\UI\HUD\mouseicons</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\mouseicons.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\progress_gradient.png</Source>
+      <Name>Assets\Textures\UI\HUD\progress_gradient</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_gradient.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\progress_white.png</Source>
+      <Name>Assets\Textures\UI\HUD\progress_white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_white.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\reticuleClosed.png</Source>
+      <Name>Assets\Textures\UI\HUD\reticuleClosed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleClosed.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\reticuleDefault.png</Source>
+      <Name>Assets\Textures\UI\HUD\reticuleDefault</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleDefault.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\reticuleOpen.png</Source>
+      <Name>Assets\Textures\UI\HUD\reticuleOpen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleOpen.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\white.png</Source>
+      <Name>Assets\Textures\UI\HUD\white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\white.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Backgrounds\audiomenu.png</Source>
+      <Name>Assets\Textures\UI\Menu\Backgrounds\audiomenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\audiomenu.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Backgrounds\controlsmenu.png</Source>
+      <Name>Assets\Textures\UI\Menu\Backgrounds\controlsmenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\controlsmenu.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Backgrounds\exitmenu.png</Source>
+      <Name>Assets\Textures\UI\Menu\Backgrounds\exitmenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenu.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans.png</Source>
+      <Name>Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Backgrounds\mainmenu.PNG</Source>
+      <Name>Assets\Textures\UI\Menu\Backgrounds\mainmenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\mainmenu.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\Menu\Buttons\genericbtn.png</Source>
+      <Name>Assets\Textures\UI\Menu\Buttons\genericbtn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Buttons\genericbtn.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Debug\Textures\checkerboard_greywhite.png</Source>
+      <Name>Assets\Debug\Textures\checkerboard_greywhite</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard_greywhite.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Debug\Textures\ml.png</Source>
+      <Name>Assets\Debug\Textures\ml</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\ml.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Debug\Textures\slj.jpg</Source>
+      <Name>Assets\Debug\Textures\slj</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\slj.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Buildings\house-low-texture.jpg</Source>
+      <Name>Assets\Textures\Architecture\Buildings\house-low-texture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Buildings\house-low-texture.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Fence\fence1.jpg</Source>
+      <Name>Assets\Textures\Architecture\Fence\fence1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence1.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Fence\fence2.jpg</Source>
+      <Name>Assets\Textures\Architecture\Fence\fence2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence2.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Fence\fence3.jpg</Source>
+      <Name>Assets\Textures\Architecture\Fence\fence3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence3.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Fence\fence4.png</Source>
+      <Name>Assets\Textures\Architecture\Fence\fence4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence4.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Walls\backwall.jpg</Source>
+      <Name>Assets\Textures\Architecture\Walls\backwall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\backwall.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Walls\sidewall.jpg</Source>
+      <Name>Assets\Textures\Architecture\Walls\sidewall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\sidewall.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Architecture\Walls\wall.jpg</Source>
+      <Name>Assets\Textures\Architecture\Walls\wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\wall.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Common\white64x64.png</Source>
+      <Name>Assets\Textures\Common\white64x64</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Common\white64x64.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Ground\grass_highlevel.jpg</Source>
+      <Name>Assets\Textures\Foliage\Ground\grass_highlevel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_highlevel.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Ground\grass_midlevel.jpg</Source>
+      <Name>Assets\Textures\Foliage\Ground\grass_midlevel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_midlevel.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Landscape\canyon.jpg</Source>
+      <Name>Assets\Textures\Landscape\canyon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Landscape\canyon.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Skydome\skydome.jpg</Source>
+      <Name>Assets\Textures\Skydome\skydome</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skydome\skydome.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Crates\wc1_diffuse.tga</Source>
+      <Name>Assets\Textures\Props\Crates\wc1_diffuse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\wc1_diffuse.xnb</Output>
+      <Time>2018-11-30T13:18:40+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Animated\alarm.png</Source>
+      <Name>Assets\Textures\Animated\alarm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Animated\alarm.xnb</Output>
+      <Time>2018-12-04T07:45:20+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\alarm1.png</Source>
+      <Name>Assets\Textures\Billboards\alarm1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm1.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\alarm2.png</Source>
+      <Name>Assets\Textures\Billboards\alarm2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm2.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\billboardtexture.jpg</Source>
+      <Name>Assets\Textures\Billboards\billboardtexture</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\billboardtexture.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\chevron1.png</Source>
+      <Name>Assets\Textures\Billboards\chevron1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron1.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\chevron2.png</Source>
+      <Name>Assets\Textures\Billboards\chevron2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron2.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\snow1.png</Source>
+      <Name>Assets\Textures\Billboards\snow1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\snow1.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Billboards\welcome.png</Source>
+      <Name>Assets\Textures\Billboards\welcome</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\welcome.xnb</Output>
+      <Time>2018-12-20T11:22:52+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Level\level1.png</Source>
+      <Name>Assets\Textures\Level\level1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level1.xnb</Output>
+      <Time>2018-12-20T11:23:04+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\white.png</Source>
+      <Name>Assets\Textures\white</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\white.xnb</Output>
+      <Time>2018-12-21T09:01:22+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Level\level_test.png</Source>
+      <Name>Assets\Textures\Level\level_test</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level_test.xnb</Output>
+      <Time>2018-12-21T10:32:18+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Audio\boing.wav</Source>
+      <Name>Assets\Audio\boing</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\boing.xnb</Output>
+      <Time>2018-11-30T13:18:38+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Effects\Billboard.fx</Source>
+      <Name>Assets\Effects\Billboard</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Effects\Billboard.xnb</Output>
+      <Time>2018-12-22T11:58:58+00:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{126295C8-DF19-41C6-8384-E55BDF49737E}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDAppContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2019-05-04T00:47:10.1760306+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
