@@ -35,6 +35,7 @@ namespace GDLibrary
         public delegate void DebugEventHandler(EventData eventData);
         public delegate void VideoEventHandler(EventData eventData);
         public delegate void TextRenderEventHandler(EventData eventData);
+        public delegate void CashManagerHandler(EventData eventData);
 
         //an event is either null (not yet happened) or non-null - when the event occurs the delegate reads through its list and calls all the listening functions
         public event CameraEventHandler CameraChanged;
@@ -51,6 +52,7 @@ namespace GDLibrary
         public event DebugEventHandler DebugChanged;
         public event VideoEventHandler VideoChanged;
         public event TextRenderEventHandler TextRenderChanged;
+        public event CashManagerHandler CashEvent;
 
 
         public EventDispatcher(Game game, int initialSize)
@@ -147,11 +149,16 @@ namespace GDLibrary
                 case EventCategoryType.TextRender:
                     OnTextRender(eventData);
                     break;
+                    
+                case EventCategoryType.Cash:
+                    OnCashChanged(eventData);
+                    break;
 
                 default:
                     break;
             }
         }
+
 
 
         //called when a video event needs to be generated e.g. play, pause, restart
@@ -218,6 +225,8 @@ namespace GDLibrary
             DebugChanged?.Invoke(eventData);
         }
 
+
+
         //called when a global sound event is sent to set volume by category or mute all sounds
         protected virtual void OnGlobalSound(EventData eventData)
         {
@@ -246,6 +255,11 @@ namespace GDLibrary
         protected virtual void OnMouse(EventData eventData)
         {
             MouseChanged?.Invoke(eventData);
+        }
+
+        protected virtual void OnCashChanged(EventData eventData)
+        {
+            CashEvent?.Invoke(eventData);
         }
     }
 }

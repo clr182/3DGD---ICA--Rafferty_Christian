@@ -155,6 +155,7 @@ namespace GDLibrary
 
         public Vector3 TranslateIncrement { get; set; }
         public float RotateIncrement { get; set; }
+        public float RotationInDegrees { get; internal set; }
 
         #endregion
 

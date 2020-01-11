@@ -27,11 +27,24 @@ namespace GDLibrary
         CollidableZone,
         CollidableCamera,
         CollidablePlayer,
+
         //ui
         UIMouse,
         UIButton,
         UIText,
         UITexture,
+
+        //CashMoney
+        Fifty,
+        Twenty,
+        Ten,
+        Five,
+        Two,
+        One,
+        FiftyC,
+        TwentyC,
+        TenC,
+        FiveC,
     }
 }
 

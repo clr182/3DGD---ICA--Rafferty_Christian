@@ -2,6 +2,7 @@ using GDLibrary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace GDApp
@@ -12,15 +13,18 @@ namespace GDApp
     public class Main : Microsoft.Xna.Framework.Game
     {
         #region Fields
+
+        //Graphics
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private ObjectManager object3DManager;
-        private KeyboardManager keyboardManager;
-        private MouseManager mouseManager;
         private Integer2 resolution;
         private Integer2 screenCentre;
-        private InputManagerParameters inputManagerParameters;
-        private CameraManager cameraManager;
+
+        //Camera
+        private CameraLayoutType cameraLayoutType;
+        private ScreenLayoutType screenLayoutType;
+
+        //Dictionaries
         private ContentDictionary<Model> modelDictionary;
         private ContentDictionary<Texture2D> textureDictionary;
         private ContentDictionary<SpriteFont> fontDictionary;
@@ -29,15 +33,29 @@ namespace GDApp
         private Dictionary<string, EffectParameters> effectDictionary;
         private Dictionary<string, IVertexData> vertexDictionary;
         private Dictionary<string, DrawnActor3D> objectArchetypeDictionary;
+
+        //Event Dispatcher
         private EventDispatcher eventDispatcher;
+
+        //Managers
+        private CameraManager cameraManager;
+        private ObjectManager object3DManager;
+        private KeyboardManager keyboardManager;
+        private MouseManager mouseManager;
+        private InputManagerParameters inputManagerParameters;
         private PickingManager pickingManager;
         private SoundManager soundManager;
         private MyMenuManager menuManager;
-
-        private CameraLayoutType cameraLayoutType;
-        private ScreenLayoutType screenLayoutType;
         private UIManager uiManager;
-        private PlayerCollidablePrimitiveObject drivableModelObject;
+        private CustomerManager customerManager;
+        private CashManager cashManager;
+
+        //Misc
+        private Queue<CollidablePrimitiveObject> customers = new Queue<CollidablePrimitiveObject>();
+        private Vector2[] arrOfClippedNumTexPoints = new Vector2[8];
+        private float cashRegisterFloat = 123770;
+        private IActor drivableModelObject;
+        private List<CollidablePrimitiveObject> moneyList= new List<CollidablePrimitiveObject>();
         #endregion
 
         #region Constructors
@@ -51,24 +69,19 @@ namespace GDApp
         #region Initialization
         protected override void Initialize()
         {
-            //set the title
-            Window.Title = "3DGD - My Amazing Game 1.0";
+            Window.Title = "Custodian of Capital";
 
-            //note - consider what settings CameraLayoutType.Single and ScreenLayoutType to > 1 means.
-            //set camera layout - single or multi
             this.cameraLayoutType = CameraLayoutType.Multi;
-            //set screen layout
-            this.screenLayoutType = ScreenLayoutType.FirstPerson;
+            this.screenLayoutType = ScreenLayoutType.MultiFullCycle;
 
             #region Assets & Dictionaries
             InitializeDictionaries();
             #endregion
 
             #region Graphics Related
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.resolution = ScreenUtility.XVGA;
-            this.screenCentre = this.resolution / 2;
+            this.resolution = ScreenUtility.HD720;
+            this.screenCentre = this.resolution / 3;
             InitializeGraphics();
             InitializeEffects();
             #endregion
@@ -98,12 +111,21 @@ namespace GDApp
             InitializeCameras();
             #endregion
 
+            #region customers
+            initializeCustomers();
+            #endregion
+
+            #region cash
+            InitializeNumberBlocks();
+            #endregion
+
             #region Menu & UI
             InitializeMenu();
             //since debug needs sprite batch then call here
             InitializeUI();
             #endregion
 
+            #region debug stuff
 #if DEBUG
             InitializeDebug(true);
             bool bShowCDCRSurfaces = true;
@@ -113,9 +135,9 @@ namespace GDApp
 
             //Publish Start Event(s)
             StartGame();
-
             base.Initialize();
         }
+        #endregion
 
         private void StartGame()
         {
@@ -124,41 +146,47 @@ namespace GDApp
 
             //publish an event to set the camera
             object[] additionalEventParamsB = { AppData.CameraIDCollidableFirstPerson };
-            EventDispatcher.Publish(new EventData(EventActionType.OnCameraSetActive, EventCategoryType.Camera, additionalEventParamsB));            
-            //or we could also just use the line below, but why not use our event dispatcher?
-            //this.cameraManager.SetActiveCamera(x => x.ID.Equals("collidable first person camera 1"));
+            EventDispatcher.Publish(new EventData(EventActionType.OnCameraSetActive, EventCategoryType.Camera, additionalEventParamsB)); 
         }
 
         private void InitializeManagers()
         {
+            #region input manager
             //Keyboard
             this.keyboardManager = new KeyboardManager(this);
             Components.Add(this.keyboardManager);
-
-            //Mouse
+            
+            //mouse
             bool bMouseVisible = true;
             this.mouseManager = new MouseManager(this, bMouseVisible);
             this.mouseManager.SetPosition(this.screenCentre);
             Components.Add(this.mouseManager);
-
+            
             //bundle together for easy passing
             this.inputManagerParameters = new InputManagerParameters(this.mouseManager, this.keyboardManager);
+            #endregion
 
+            #region camera manager
             //this is a list that updates all cameras
             this.cameraManager = new CameraManager(this, 5, this.eventDispatcher, StatusType.Off);
             Components.Add(this.cameraManager);
+            #endregion
 
+            #region 3d object manager
             //Object3D
             this.object3DManager = new ObjectManager(this, this.cameraManager,
                 this.eventDispatcher, StatusType.Off, this.cameraLayoutType);
             this.object3DManager.DrawOrder = 1;
             Components.Add(this.object3DManager);
+            #endregion
 
-           
+            #region audio manager
             //Sound
             this.soundManager = new SoundManager(this, this.eventDispatcher, StatusType.Update, "Content/Assets/Audio/", "Demo2DSound.xgs", "WaveBank1.xwb", "SoundBank1.xsb");
             Components.Add(this.soundManager);
+            #endregion
 
+            #region UI & menu manager
             //Menu
             this.menuManager = new MyMenuManager(this, this.inputManagerParameters,
                 this.cameraManager, this.spriteBatch, this.eventDispatcher,
@@ -170,11 +198,73 @@ namespace GDApp
             this.uiManager = new UIManager(this, this.spriteBatch, this.eventDispatcher, 10, StatusType.Off);
             this.uiManager.DrawOrder = 3;
             Components.Add(this.uiManager);
+            #endregion
 
-            //picking
+            #region picking manager
             this.pickingManager = new PickingManager(this, this.eventDispatcher, StatusType.Update,
-               this.inputManagerParameters, this.cameraManager, this.object3DManager, PickingBehaviourType.PickAndRemove);
+               this.inputManagerParameters, this.cameraManager, this.object3DManager, PickingBehaviourType.PickOnly);
             Components.Add(this.pickingManager);
+            #endregion
+
+            #region Customer manager
+            this.customerManager = new CustomerManager(this, this.eventDispatcher, StatusType.Drawn,
+                this.customers);
+            Components.Add(this.customerManager);
+            //InitializeNumberBlocks();
+            #endregion
+
+            #region cash manger
+            this.cashManager = new CashManager(this, this.eventDispatcher, this.inputManagerParameters, this.object3DManager, this.pickingManager, StatusType.Update, 
+                this.cashRegisterFloat);
+            Components.Add(this.cashManager);
+
+           
+            #endregion
+        }
+
+        private void initializeCustomers()
+        {
+            spawnAmountOfCustomers(5);
+        }
+
+
+
+        private void spawnAmountOfCustomers(int amount)
+        {
+            Transform3D transform;
+            CollidablePrimitiveObject texturedPrimitiveObject;
+            PrimitiveObject cloneTexturedPrimitiveObject = null;
+
+            int X = 30;
+            int Y = 8;
+            int Z = 0;
+            int RandX, RandY, RandZ, RandTextureNo;
+            
+            transform = new Transform3D(new Vector3(X, Y, Z), new Vector3(4, 20, 14));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "character" + 1);
+            this.object3DManager.Add(texturedPrimitiveObject);
+            this.customers.Enqueue(texturedPrimitiveObject);
+
+            Random randY = new Random();
+            Random randZ = new Random();
+            Random randTextureNo = new Random();
+
+            for (int i = 0; i < amount; i++)
+            {
+                RandY = randY.Next(10, 30);
+                RandZ = randY.Next(5, 25);
+                RandTextureNo = randTextureNo.Next(1, 10);
+                X += 10;
+
+                cloneTexturedPrimitiveObject = texturedPrimitiveObject.Clone() as PrimitiveObject;
+                cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(X, Y, Z);
+                cloneTexturedPrimitiveObject.Transform.Scale = new Vector3(4, RandY, RandZ);
+                cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["character" + RandTextureNo];
+                cloneTexturedPrimitiveObject.ID = i + " customer";
+
+                this.object3DManager.Add(cloneTexturedPrimitiveObject);
+                this.customers.Enqueue(texturedPrimitiveObject);
+            }
         }
 
         private void InitializeUI()
@@ -255,7 +345,7 @@ namespace GDApp
             Texture2D texture = this.textureDictionary["reticuleDefault"];
             //show complete texture
             Microsoft.Xna.Framework.Rectangle sourceRectangle 
-       = new Microsoft.Xna.Framework.Rectangle(0, 0, texture.Width, texture.Height);
+            = new Microsoft.Xna.Framework.Rectangle(0, 0, texture.Width, texture.Height);
 
             //listens for object picking events from the object picking manager
             UIPickingMouseObject myUIMouseObject = 
@@ -270,11 +360,172 @@ namespace GDApp
                 this.eventDispatcher);
                 this.uiManager.Add(myUIMouseObject);
         }
+
+        public void initializeTVScreen()
+        {
+            string strText = cashManager.StartingCash.ToString();
+            SpriteFont strFont = this.fontDictionary["menu"];
+            Vector2 strDim = strFont.MeasureString(strText);
+            strDim /= 2.0f;
+
+            Transform2D transform = new Transform2D(
+                (Vector2)this.screenCentre,
+                0, new Vector2(1, 1),
+                strDim,
+                new Integer2(1, 1));
+
+            UITextObject newTextObj = new UITextObject(
+                "cost", ActorType.UIText,
+                StatusType.Drawn | StatusType.Update,
+                transform,
+                Color.Red,
+                SpriteEffects.None,
+                0,
+                strText,
+                strFont
+               );
+
+            
+            EventDispatcher.Publish(new EventData(
+                    "",
+                    newTextObj, //handle to "win!"
+                    EventActionType.OnAddActor2D,
+                    EventCategoryType.SystemAdd));
+        }
         #endregion
 
-        #region Load Game Content
-        //load the contents for the level specified
-        private void LoadGame(int worldScale, int gameLevel)
+
+        public void InitializeNumberBlocks()
+        {
+            PrimitiveObject primitiveObject = null;
+            Transform3D transform = null;
+
+            string[] NumberTextures = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+
+            //set transform
+            Vector3 translation = new Vector3(12.8f, 8, -1.35f);
+            Vector3 scale = new Vector3(.5f, 1, 1);
+            transform = new Transform3D(translation, scale);
+
+            primitiveObject = new PrimitiveObject(
+               "tex quad",
+               ActorType.Decorator,
+               transform,
+               this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters,
+               StatusType.Update,
+               this.vertexDictionary[AppData.UnlitTexturedQuadVertexDataID]);
+
+            primitiveObject.EffectParameters.Alpha = 1;
+            //primitiveObject.EffectParameters.Texture = this.textureDictionary["Zero"];
+            primitiveObject.Transform.Rotation = new Vector3(0, -90, 0);
+            primitiveObject.StatusType = StatusType.Drawn;
+            primitiveObject.ID = "ZeroBlock";
+            this.object3DManager.Add(primitiveObject);
+
+            PrimitiveObject cloneTexturedPrimitiveObject = null;
+
+            cloneTexturedPrimitiveObject = primitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(12.8f, 8, translation.Z + 0.5f);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["Zero"];
+            cloneTexturedPrimitiveObject.StatusType = StatusType.Update | StatusType.Drawn;
+            cloneTexturedPrimitiveObject.ID = "OneBlock";
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+
+            cloneTexturedPrimitiveObject = primitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(12.8f, 8, translation.Z + 1f);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["Zero"];
+            cloneTexturedPrimitiveObject.StatusType = StatusType.Update | StatusType.Drawn;
+            cloneTexturedPrimitiveObject.ID = "TwoBlock";
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+
+            cloneTexturedPrimitiveObject = primitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(12.8f, 8, translation.Z + 1.5f);
+            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["Dot"];
+            cloneTexturedPrimitiveObject.StatusType = StatusType.Update | StatusType.Drawn;
+            cloneTexturedPrimitiveObject.ID = "Dot";
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+
+            cloneTexturedPrimitiveObject = primitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(12.8f, 8, translation.Z + 2f);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["Zero"];
+            cloneTexturedPrimitiveObject.StatusType = StatusType.Update | StatusType.Drawn;
+            cloneTexturedPrimitiveObject.ID = "ThreeBlock";
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+
+            cloneTexturedPrimitiveObject = primitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(12.8f, 8, translation.Z + 2.5f);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["Zero"];
+            cloneTexturedPrimitiveObject.StatusType = StatusType.Update | StatusType.Drawn;
+            cloneTexturedPrimitiveObject.ID = "FourBlock";
+            
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+        }
+
+
+        private void InitializeNumberSystem()
+        {
+            string[] NumberTextures = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine" };
+            string[] theCoolerNumberTextures = updateCounterTextures(NumberTextures, this.cashManager.StartingCash);
+            PrimitiveObject primitiveObject = null;
+            
+            Predicate<Actor3D> prediZero = obj => obj.ID == "ZeroBlock";
+            Predicate<Actor3D> prediOne = obj => obj.ID == "OneBlock";
+            Predicate<Actor3D> prediTwo = obj => obj.ID == "TwoBlock";
+            Predicate<Actor3D> prediThree = obj => obj.ID == "ThreeBlock";
+            Predicate<Actor3D> prediFour = obj => obj.ID == "FourBlock";
+
+            if (prediZero != null)
+            {
+                primitiveObject = this.cashManager.findByID(prediZero) as PrimitiveObject;
+                primitiveObject.EffectParameters.Texture = this.textureDictionary[theCoolerNumberTextures[0]];
+
+                primitiveObject = this.cashManager.findByID(prediOne) as PrimitiveObject;
+                primitiveObject.EffectParameters.Texture = this.textureDictionary[theCoolerNumberTextures[1]];
+
+                primitiveObject = this.cashManager.findByID(prediTwo) as PrimitiveObject;
+                primitiveObject.EffectParameters.Texture = this.textureDictionary[theCoolerNumberTextures[2]];
+
+                primitiveObject = this.cashManager.findByID(prediThree) as PrimitiveObject;
+                primitiveObject.EffectParameters.Texture = this.textureDictionary[theCoolerNumberTextures[3]];
+
+                primitiveObject = this.cashManager.findByID(prediFour) as PrimitiveObject;
+                primitiveObject.EffectParameters.Texture = this.textureDictionary[theCoolerNumberTextures[4]];
+            }
+        }
+           
+        
+        public string[] updateCounterTextures(string[] NumberTextures, float cashRegisterFloat)
+        {
+            //convert cash float to a string so I can convert to a chararr to split it back up again into a number to update the texture
+            
+            string numAsString = cashRegisterFloat.ToString();
+            char[] charArr = numAsString.ToCharArray();
+            string[] temp = new string[charArr.Length];
+            //index out of range unless I convert the char to a string first then parse to an int ... weird stuff but idc it works
+            int firstNum = int.Parse(charArr[0].ToString());
+            int secondNum = int.Parse(charArr[1].ToString());
+            int thirdNum = int.Parse(charArr[2].ToString());
+            int fourthNum = int.Parse(charArr[3].ToString());
+            int fifthNum = int.Parse(charArr[4].ToString());
+            int sixthNum = int.Parse(charArr[5].ToString());
+
+
+            temp[0] = NumberTextures[firstNum];
+            temp[0] = NumberTextures[secondNum];
+            temp[1] = NumberTextures[thirdNum];
+            temp[2] = NumberTextures[fourthNum];
+            temp[3] = NumberTextures[fifthNum];
+            temp[4] = NumberTextures[sixthNum];
+
+            return temp;
+        }
+
+
+
+
+            #region Load Game Content
+            //load the contents for the level specified
+            private void LoadGame(int worldScale, int gameLevel)
         {
             //remove anything from the last time LoadGame() may have been called
             this.object3DManager.Clear();
@@ -284,12 +535,10 @@ namespace GDApp
                 //non-collidable
                 InitializeSkyBox(worldScale);
                 InitializeNonCollidableGround(worldScale);
-                InitializeNonCollidableProps();
-
+                
+                initializeTVScreen();
                 //collidable
                 InitializeCollidableProps();
-                //collidable and drivable player
-                InitializeCollidablePlayer();
                 //demo of loading from a level image
                 LoadObjectsFromImageFile("level1", 2, 2, 2.5f, new Vector3(-100, 0, 0));
 
@@ -303,6 +552,7 @@ namespace GDApp
             }
         }
 
+
         #region Non-Collidable Primitive Objects
         private void InitializeSkyBox(int worldScale)
         {
@@ -311,54 +561,52 @@ namespace GDApp
             #region Archetype
             //we need to do an "as" typecast since the dictionary holds DrawnActor3D types
             archTexturedPrimitiveObject = this.objectArchetypeDictionary[AppData.UnlitTexturedQuadArchetypeID] as PrimitiveObject;
-            archTexturedPrimitiveObject.Transform.Scale *= worldScale;
+            archTexturedPrimitiveObject.Transform.Scale *= new Vector3(150, 100, 100);
             #endregion
             //demonstrates how we can simply clone an archetypal primitive object and re-use by re-cloning
-            #region Skybox
-            //back
-            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            cloneTexturedPrimitiveObject.ID = "skybox_back";
-            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 0, -worldScale / 2.0f);
-            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_back"];
-            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            
 
-            //left
-            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            cloneTexturedPrimitiveObject.ID = "skybox_left";
-            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(-worldScale / 2.0f, 0, 0);
-            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 90, 0);
-            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_left"];
-            this.object3DManager.Add(cloneTexturedPrimitiveObject);
 
-            //right
-            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            cloneTexturedPrimitiveObject.ID = "skybox_right";
-            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(worldScale / 2.0f, 0, 0);
-            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, -90, 0);
-            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_right"];
-            this.object3DManager.Add(cloneTexturedPrimitiveObject);
 
-            //front
-            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            cloneTexturedPrimitiveObject.ID = "skybox_front";
-            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 0, worldScale / 2.0f);
-            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 180, 0);
-            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_front"];
-            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            #region ring ropes
+            ////back
+            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            //cloneTexturedPrimitiveObject.ID = "skybox_back";
+            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 50, -75);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_back"];
+            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            //
+            ////left
+            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            //cloneTexturedPrimitiveObject.ID = "skybox_left";
+            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(-75, 50, 0);
+            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 90, 0);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_left"];
+            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            //
+            ////right
+            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            //cloneTexturedPrimitiveObject.ID = "skybox_right";
+            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(75, 50, 0);
+            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(00, -90, 0);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_right"];
+            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            //
+            ////front
+            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            //cloneTexturedPrimitiveObject.ID = "skybox_front";
+            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 50, 75);
+            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 180, 0);
+            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_front"];
+            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
 
-            //top
-            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            cloneTexturedPrimitiveObject.ID = "skybox_sky";
-            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, worldScale / 2.0f, 0);
-            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(90, -90, 0);
-            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_sky"];
-            this.object3DManager.Add(cloneTexturedPrimitiveObject);
-            #endregion
+            #endregion 
         }
 
         private void InitializeNonCollidableGround(int worldScale)
         {
-            Transform3D transform = new Transform3D(new Vector3(0, 0, 0), new Vector3(-90, 0, 0), worldScale * Vector3.One,
+            Vector3 worldSize = new Vector3(150,150,150);
+            Transform3D transform = new Transform3D(new Vector3(0, 0, 0), new Vector3(-90, 0, 0), worldSize,
               Vector3.UnitZ, Vector3.UnitY);
 
             EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
@@ -373,111 +621,18 @@ namespace GDApp
             this.object3DManager.Add(primitiveObject);
         }
 
-        private void InitializeNonCollidableProps()
-        {
-            PrimitiveObject primitiveObject = null;
-            Transform3D transform = null;
-
-            #region Add wireframe origin helper
-            transform = new Transform3D(new Vector3(0, 10, 0), Vector3.Zero, 10 * Vector3.One,
-                Vector3.UnitZ, Vector3.UnitY);
-
-            primitiveObject = new PrimitiveObject("origin1", ActorType.Helper,
-                    transform,
-                    this.effectDictionary[AppData.UnlitWireframeEffectID].Clone() as EffectParameters,
-                    StatusType.Drawn | StatusType.Update,
-                    this.vertexDictionary[AppData.WireframeOriginHelperVertexDataID]);
-
-            this.object3DManager.Add(primitiveObject);
-            #endregion
-
-            #region Add Coloured Triangles
-            //wireframe triangle
-            transform = new Transform3D(new Vector3(20, 10, -10), Vector3.Zero, 4 * new Vector3(2, 3, 1),
-                    Vector3.UnitZ, Vector3.UnitY);
-
-            primitiveObject = new PrimitiveObject("triangle1", ActorType.Decorator,
-                    transform,
-                    this.effectDictionary[AppData.UnlitWireframeEffectID].Clone() as EffectParameters,
-                    StatusType.Drawn | StatusType.Update,
-                    this.vertexDictionary[AppData.WireframeTriangleVertexDataID]);
-
-            primitiveObject.AttachController(new RotationController("rotControl1", ControllerType.Rotation,
-                            0.1875f * Vector3.UnitY));
-
-            this.object3DManager.Add(primitiveObject);
-
-
-            //set transform
-            transform = new Transform3D(new Vector3(0, 20, 0), new Vector3(1, 8, 1));
-
-            //make the triangle object
-            primitiveObject = new PrimitiveObject("1st triangle", ActorType.Decorator,
-                transform,
-                //notice we use the right effect for the type e.g. wireframe, textures, lit textured
-                this.effectDictionary[AppData.UnlitWireframeEffectID].Clone() as EffectParameters,
-                //if an object doesnt need to be updated i.e. no controller then we dont need to update!
-                StatusType.Drawn,
-                //get the vertex data from the dictionary 
-                this.vertexDictionary[AppData.WireframeTriangleVertexDataID]);
-
-            //change some properties - because we can!
-            primitiveObject.EffectParameters.Alpha = 0.25f;
-            //add
-            this.object3DManager.Add(primitiveObject);
-            #endregion
-
-            #region Add Textured Quads
-            for (int i = 5; i <= 25; i+= 5)
-            {
-                //set transform
-                transform = new Transform3D(new Vector3(-10, i, 0), 3 * Vector3.One);
-                primitiveObject = new PrimitiveObject("tex quad ", ActorType.Decorator,
-                   transform,
-                   //notice we use the right effect for the type e.g. wireframe, textures, lit textured
-                   this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters,
-                   //if an object doesnt need to be updated i.e. no controller then we dont need to update!
-                   StatusType.Drawn,
-                   //get the vertex data from the dictionary 
-                   this.vertexDictionary[AppData.UnlitTexturedQuadVertexDataID]);
-
-                //change some properties - because we can!
-                primitiveObject.EffectParameters.DiffuseColor = Color.Pink;
-                primitiveObject.EffectParameters.Alpha = 0.5f;
-                primitiveObject.EffectParameters.Texture = this.textureDictionary["ml"];
-                this.object3DManager.Add(primitiveObject);
-            }
-            #endregion
-
-            #region Add Circle
-            transform = new Transform3D(new Vector3(-20, 15, 0), new Vector3(2, 4, 1));
-
-            primitiveObject = new PrimitiveObject("1st circle", ActorType.Decorator,
-                    transform,
-                    //notice we use the right effect for the type e.g. wireframe, textures, lit textured
-                   this.effectDictionary[AppData.UnlitWireframeEffectID].Clone() as EffectParameters,
-                   //set Update becuase we are going to add a controller!
-                   StatusType.Drawn | StatusType.Update,
-                   //get the vertex data from the dictionary 
-                   this.vertexDictionary[AppData.WireframeCircleVertexDataID]);
-
-            //why not add a controller!?
-            primitiveObject.AttachController(new RotationController("rotControl1", ControllerType.Rotation,
-                            0.1875f * new Vector3(1, 0, 0)));
-
-            this.object3DManager.Add(primitiveObject);
-            #endregion
-        }
-
         private void LoadObjectsFromImageFile(string fileName, float scaleX, float scaleZ, float height, Vector3 offset)
         {
             LevelLoader levelLoader = new LevelLoader(this.objectArchetypeDictionary, this.textureDictionary);
-            List<DrawnActor3D> actorList = levelLoader.Load(this.textureDictionary[fileName],
-               scaleX, scaleZ, height, offset);
+            //List<DrawnActor3D> actorList = levelLoader.Load(this.textureDictionary[fileName],
+            //   scaleX, scaleZ, height, offset);
 
-            this.object3DManager.Add(actorList);
+           // this.object3DManager.Add(actorList);
         }
         #endregion
+
+
+
 
         #region Collidable Primitive Objects
         private void InitializeCollidableProps()
@@ -485,79 +640,101 @@ namespace GDApp
             CollidablePrimitiveObject texturedPrimitiveObject = null;
             Transform3D transform = null;
 
-           
+            #region desk
+            transform = new Transform3D(new Vector3(20, 5, 00), new Vector3(8, 8, 25));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            this.object3DManager.Add(texturedPrimitiveObject);
 
+            transform = new Transform3D(new Vector3(13, 4, 0), new Vector3(8, 4, 25));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "desk2");
+            this.object3DManager.Add(texturedPrimitiveObject);
 
-            for (int i = 1; i < 10; i++)
-            {
-                transform = new Transform3D(new Vector3(i * 10 + 10, 4 /*i.e. half the scale of 8*/, 20), new Vector3(6, 8, 6));
+            transform = new Transform3D(new Vector3(12, 5, 17), new Vector3(25, 8, 8));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            this.object3DManager.Add(texturedPrimitiveObject);
 
-                //a unique copy of the effect for each box in case we want different color, texture, alpha
-                EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
-                effectParameters.Texture = this.textureDictionary["crate1"];
-                effectParameters.DiffuseColor = Color.White;
-                effectParameters.Alpha = 1;
+            transform = new Transform3D(new Vector3(12, 5, -17), new Vector3(25, 8, 8));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            this.object3DManager.Add(texturedPrimitiveObject);
+            #endregion
+            
+            #region desk objects
+            //pc
+            transform = new Transform3D(new Vector3(13, 8, 0), new Vector3(.2f, 4, 4));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "tele");
+            this.object3DManager.Add(texturedPrimitiveObject);
 
-                //make the collision primitive - changed slightly to no longer need transform
-                BoxCollisionPrimitive collisionPrimitive = new BoxCollisionPrimitive();
+            //cash
+            transform = new Transform3D(new Vector3(13, 6.5f, 5), new Vector3(3, 1, 1.5f));
+            texturedPrimitiveObject = CreateTexturedBox(transform, "cashbox");
+            this.object3DManager.Add(texturedPrimitiveObject);
 
-                //make a collidable object and pass in the primitive
-                texturedPrimitiveObject = new CollidablePrimitiveObject("collidable lit cube " + i,
-                    //this is important as it will determine how we filter collisions in our collidable player CDCR code
-                    ActorType.CollidableArchitecture,
-                    transform,
-                    effectParameters,
-                    StatusType.Drawn | StatusType.Update,
-                    this.vertexDictionary[AppData.UnlitTexturedCubeVertexDataID],
-                    collisionPrimitive, this.object3DManager);
+            //coins
+            transform = new Transform3D(new Vector3(13, 6.5f, -5), new Vector3(0, 0, 45), new Vector3(3, 1, 1.5f), Vector3.Zero, Vector3.Zero);
+            texturedPrimitiveObject = CreateTexturedBox(transform, "cashbox");
+            this.object3DManager.Add(texturedPrimitiveObject);
+            #endregion
 
-                if (i > 3) //attach controllers but not on all of the boxes
-                {
-                    //if we want to make the boxes move (or do something else) then just attach a controller
-                    texturedPrimitiveObject.AttachController(new TranslationSineLerpController("transControl1", ControllerType.SineTranslation,
-                        Vector3.UnitY, //displacement vector 
-                        new TrigonometricParameters(20, //amplitude multipler on displacement 
-                        0.1f,  //frequency of the sine curve
-                        90 * i))); //notice how the phase offset of 90 degrees offsets each object's translation along the sine curve
+            #region cash
+            CollidablePrimitiveObject fiver = null;
+            transform = new Transform3D(new Vector3(12, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
+            fiver = CreateTexturedBox(transform, "fiver");
+            this.object3DManager.Add(fiver);
+            this.moneyList.Add(fiver);
 
-                    texturedPrimitiveObject.AttachController(new ColorSineLerpController("colorControl1", ControllerType.SineColor,
-                        Color.Red, Color.Green, new TrigonometricParameters(1, 0.1f)));
-                }
+            CollidablePrimitiveObject tenner = null;
+            transform = new Transform3D(new Vector3(12.5f, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
+            tenner = CreateTexturedBox(transform, "tenner");
+            this.object3DManager.Add(tenner);
+            this.moneyList.Add(tenner);
 
-                this.object3DManager.Add(texturedPrimitiveObject);
-            }
+            CollidablePrimitiveObject twenty = null;
+            transform = new Transform3D(new Vector3(13f, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
+            twenty = CreateTexturedBox(transform, "twenny");
+            this.object3DManager.Add(twenty);
+            this.moneyList.Add(twenty);
+
+            CollidablePrimitiveObject fifty = null;
+            transform = new Transform3D(new Vector3(13.5f, 7f, 5), new Vector3(30, 90,0 ), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
+            fifty = CreateTexturedBox(transform, "fiddy");
+            fifty.ActorType = ActorType.Fifty;
+            this.object3DManager.Add(fifty);
+            this.moneyList.Add(fifty);
+            #endregion
+
+            #region coin
+
+            #endregion
         }
 
-        //adds a drivable player that can collide against collidable objects and zones
-        private void InitializeCollidablePlayer()
+
+
+
+        private CollidablePrimitiveObject CreateTexturedBox(Transform3D transform3d, string textureFromDictionary)
         {
-            //set the position
-            Transform3D transform = new Transform3D(new Vector3(-5, 3, 40), Vector3.Zero, new Vector3(3, 6, 3), Vector3.UnitX, Vector3.UnitY);
- 
-            //load up the particular texture, color, alpha for the player
-            EffectParameters effectParameters = this.effectDictionary[AppData.LitTexturedEffectID].Clone() as EffectParameters;
-            effectParameters.Texture = this.textureDictionary["crate1"];
+            CollidablePrimitiveObject texturedPrimitiveObject = null;
+            EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
+            effectParameters.Texture = this.textureDictionary[textureFromDictionary];
+            effectParameters.DiffuseColor = Color.White;
+            effectParameters.Alpha = 1;
 
-            //make a CDCR surface - sphere or box, its up to you - you dont need to pass transform to either primitive anymore
-            ICollisionPrimitive collisionPrimitive = new SphereCollisionPrimitive(1f);
-            //ICollisionPrimitive collisionPrimitive = new BoxCollisionPrimitive();
+            BoxCollisionPrimitive collisionPrimitive = new BoxCollisionPrimitive();
 
-            this.drivableModelObject
-                = new PlayerCollidablePrimitiveObject("collidable player1",
-                    //this is important as it will determine how we filter collisions in our collidable player CDCR code
-                    ActorType.CollidablePlayer,
-                    transform,
-                    effectParameters,
-                    StatusType.Drawn | StatusType.Update,
-                    this.vertexDictionary[AppData.LitTexturedCubeVertexDataID],
-                    collisionPrimitive, this.object3DManager,
-                    AppData.PlayerOneMoveKeys, AppData.PlayerMoveSpeed, AppData.PlayerRotationSpeed,
-                    this.keyboardManager);
-
-            this.object3DManager.Add(this.drivableModelObject);
-
+            texturedPrimitiveObject = new CollidablePrimitiveObject("collidable lit cube ",
+                //this is important as it will determine how we filter collisions in our collidable player CDCR code
+                ActorType.CollidableArchitecture,
+                transform3d,
+                effectParameters,
+                StatusType.Drawn | StatusType.Update,
+                this.vertexDictionary[AppData.UnlitTexturedCubeVertexDataID],
+                collisionPrimitive, this.object3DManager);
+            
+            return texturedPrimitiveObject;
         }
         #endregion
+
+
+
 
         #region Collidable Zone Objects
         private void InitializeCollidableZones()
@@ -568,10 +745,6 @@ namespace GDApp
 
             transform = new Transform3D(new Vector3(-20, 8, 40), 8 * Vector3.One);
 
-            //we can have a sphere or a box - its entirely up to the developer
-            // collisionPrimitive = new SphereCollisionPrimitive(transform, 2);
-
-            //make the collision primitive - changed slightly to no longer need transform
             collisionPrimitive = new BoxCollisionPrimitive();
 
             simpleZoneObject = new SimpleZoneObject("camera trigger zone 1", ActorType.CollidableZone, transform,
@@ -583,6 +756,7 @@ namespace GDApp
         #endregion
         #endregion
 
+        #region menu
         private void InitializeMenu()
         {
             Transform2D transform = null;
@@ -748,28 +922,23 @@ namespace GDApp
             this.menuManager.Add(sceneID, clone);
             #endregion
         }
+        #endregion
 
+        #region initialize Dictionaries
         private void InitializeDictionaries()
         {
-            //textures, models, fonts
             this.modelDictionary = new ContentDictionary<Model>("model dictionary", this.Content);
             this.textureDictionary = new ContentDictionary<Texture2D>("texture dictionary", this.Content);
-            this.fontDictionary = new ContentDictionary<SpriteFont>("font dictionary", this.Content);
-
-            //rail, transform3Dcurve               
+            this.fontDictionary = new ContentDictionary<SpriteFont>("font dictionary", this.Content);       
             this.railDictionary = new Dictionary<string, RailParameters>();
             this.track3DDictionary = new Dictionary<string, Track3D>();
-
-            //effect parameters
             this.effectDictionary = new Dictionary<string, EffectParameters>();
-
-            //vertices
             this.vertexDictionary = new Dictionary<string, IVertexData>();
-
-            //object archetypes that we can clone
             this.objectArchetypeDictionary = new Dictionary<string, DrawnActor3D>();
         }
+        #endregion
 
+        #region more debug
 #if DEBUG
         private void InitializeDebug(bool bEnabled)
         {
@@ -797,9 +966,9 @@ namespace GDApp
             BoundingBoxDrawer.boundingBoxColor = Color.White;
         }
 #endif
+        #endregion
 
         #region Assets
-
         private void LoadAssets()
         {
             LoadTextures();
@@ -828,17 +997,32 @@ namespace GDApp
             #endregion
 
             #region Wireframe Circle
-  
+
+
             this.vertexDictionary.Add(AppData.WireframeCircleVertexDataID, new BufferedVertexData<VertexPositionColor>(
             graphics.GraphicsDevice, VertexFactory.GetCircleVertices(2, 10, out primitiveType, out primitiveCount, OrientationType.XYAxis),
                 PrimitiveType.LineStrip, primitiveCount));
+
             #endregion
 
             #region Lit Textured Cube
-            this.vertexDictionary.Add(AppData.LitTexturedCubeVertexDataID, 
-                new BufferedVertexData<VertexPositionNormalTexture>(graphics.GraphicsDevice, VertexFactory.GetVerticesPositionNormalTexturedCube(1, out primitiveType, out primitiveCount),
-               primitiveType, primitiveCount));
+            this.vertexDictionary.Add(
+                AppData.LitTexturedCubeVertexDataID, 
+                new BufferedVertexData<VertexPositionNormalTexture>
+                    (graphics.GraphicsDevice, 
+                    VertexFactory.GetVerticesPositionNormalTexturedCube(1, out primitiveType, out primitiveCount
+                    ),
+                primitiveType, 
+                primitiveCount)
+                );
             #endregion
+
+            //#region Lit wireframe Sphere
+            //this.vertexDictionary.Add(AppData.LitTexturedSphereVertexDataID, new BufferedVertexData<VertexPositionColor>
+            //   (graphics.GraphicsDevice,
+            //   VertexFactory.GetSphereVertices(100, 40, out primitiveType, out primitiveCount), primitiveType, primitiveCount)
+            //);
+            //#endregion
             #endregion
 
             #region Old User Defines Vertices Approach
@@ -950,7 +1134,6 @@ namespace GDApp
             #endregion
 
             //add all the primitive archetypes that your game needs here, then you can just fetch and clone later e.g. in the LevelLoader
-
         }
 
         private void LoadBillboardVertices()
@@ -971,6 +1154,8 @@ namespace GDApp
             #endregion
         }
 
+
+        #region textures and file paths
         private void LoadFonts()
         {
             this.fontDictionary.Load("hudFont", "Assets/Fonts/hudFont");
@@ -991,6 +1176,7 @@ namespace GDApp
 
             //ui
             this.textureDictionary.Load("Assets/Textures/UI/HUD/reticuleDefault");
+            this.textureDictionary.Load("Numbers", "Assets/Textures/Numbers");
 
             //environment
             this.textureDictionary.Load("Assets/Textures/Props/Crates/crate1"); //demo use of the shorter form of Load() that generates key from asset name
@@ -1002,6 +1188,28 @@ namespace GDApp
             this.textureDictionary.Load("skybox_sky", "Assets/Textures/Skybox/sky");
             this.textureDictionary.Load("skybox_front", "Assets/Textures/Skybox/front");
             this.textureDictionary.Load("Assets/Textures/Foliage/Trees/tree2");
+            this.textureDictionary.Load("desk1", "Assets/Textures/Props/Desk/desk1");
+            this.textureDictionary.Load("desk2", "Assets/Textures/Props/Desk/desk2");
+            this.textureDictionary.Load("cashbox", "Assets/Textures/Props/Desk/box");
+
+            //characters
+            this.textureDictionary.Load("character1", "Assets/Textures/Characters/Person1");
+            this.textureDictionary.Load("character2", "Assets/Textures/Characters/Person2");
+            this.textureDictionary.Load("character3", "Assets/Textures/Characters/Person3");
+            this.textureDictionary.Load("character4", "Assets/Textures/Characters/Person4");
+            this.textureDictionary.Load("character5", "Assets/Textures/Characters/Person5");
+            this.textureDictionary.Load("character6", "Assets/Textures/Characters/Person6");
+            this.textureDictionary.Load("character7", "Assets/Textures/Characters/Person7");
+            this.textureDictionary.Load("character8", "Assets/Textures/Characters/Person8");
+            this.textureDictionary.Load("character9", "Assets/Textures/Characters/Person9");
+            this.textureDictionary.Load("character10", "Assets/Textures/Characters/Person10");
+
+            //prop
+            this.textureDictionary.Load("tele", "Assets/Textures/Props/Desk/Television");
+            this.textureDictionary.Load("fiver", "Assets/Textures/Props/Munny/fiver");
+            this.textureDictionary.Load("tenner", "Assets/Textures/Props/Munny/tenner");
+            this.textureDictionary.Load("twenny", "Assets/Textures/Props/Munny/twenny");
+            this.textureDictionary.Load("fiddy", "Assets/Textures/Props/Munny/fiddy");
 
             //dual texture demo
             //this.textureDictionary.Load("Assets/Textures/Foliage/Ground/grass_midlevel");
@@ -1027,12 +1235,25 @@ namespace GDApp
             //dual texture demo - see Main::InitializeCollidableGround()
             this.textureDictionary.Load("Assets/Debug/Textures/checkerboard_greywhite");
 
+            //numbers
+            this.textureDictionary.Load("Dot", "Assets/Textures/Numbers/Dot");
+            this.textureDictionary.Load("Zero", "Assets/Textures/Numbers/Zero");
+            this.textureDictionary.Load("One", "Assets/Textures/Numbers/One");
+            this.textureDictionary.Load("Two", "Assets/Textures/Numbers/Two");
+            this.textureDictionary.Load("Three", "Assets/Textures/Numbers/Three");
+            this.textureDictionary.Load("Four", "Assets/Textures/Numbers/Four");
+            this.textureDictionary.Load("Five", "Assets/Textures/Numbers/Five");
+            this.textureDictionary.Load("Six", "Assets/Textures/Numbers/Six");
+            this.textureDictionary.Load("Seven", "Assets/Textures/Numbers/Seven");
+            this.textureDictionary.Load("Eight", "Assets/Textures/Numbers/Eight");
+            this.textureDictionary.Load("Nine", "Assets /Textures/Numbers/Nine");
+
             //debug
             this.textureDictionary.Load("Assets/Debug/Textures/checkerboard");
             this.textureDictionary.Load("Assets/Debug/Textures/ml");
             this.textureDictionary.Load("Assets/Debug/Textures/checkerboard");
-
-            #region billboards
+            
+            //billboards
             this.textureDictionary.Load("Assets/Textures/Billboards/billboardtexture");
             this.textureDictionary.Load("Assets/Textures/Billboards/snow1");
             this.textureDictionary.Load("Assets/Textures/Billboards/chevron1");
@@ -1040,27 +1261,17 @@ namespace GDApp
             this.textureDictionary.Load("Assets/Textures/Billboards/alarm1");
             this.textureDictionary.Load("Assets/Textures/Billboards/alarm2");
             this.textureDictionary.Load("Assets/Textures/Props/tv");
-            #endregion
 
-            #region Levels
+            //Levels
             this.textureDictionary.Load("Assets/Textures/Level/level1");
-
-        //    this.textureDictionary.Load("level1", "Assets/Textures/Level/level_test");
-            #endregion
-
-
         }
-
+        #endregion
         private void LoadRails()
         {
             RailParameters railParameters = null;
 
             //create a simple rail that gains height as the target moves on +ve X-axis - try different rail vectors
-            railParameters = new RailParameters("battlefield 1", new Vector3(0, 10, 80), new Vector3(50, 50, 80));
-            this.railDictionary.Add(railParameters.ID, railParameters);
-
-            //add more rails here...
-            railParameters = new RailParameters("battlefield 2", new Vector3(-50, 20, 40), new Vector3(50, 80, 100));
+            railParameters = new RailParameters("rail", new Vector3(-40, 10, 50), new Vector3(40, 10, 50));
             this.railDictionary.Add(railParameters.ID, railParameters);
         }
 
@@ -1169,6 +1380,9 @@ namespace GDApp
 
                 this.cameraManager.Add(camera3D);
 
+
+
+
                 //set to a first person
                 AddFirstPersonCamera(AppData.CameraIDFirstPerson, viewport, projectionParameters);
 
@@ -1178,20 +1392,13 @@ namespace GDApp
 
             else if (this.screenLayoutType == ScreenLayoutType.MultiFullCycle)
             {
-                AddFirstPersonCamera(AppData.CameraIDFirstPerson, viewport, projectionParameters);
-                AddFlightCamera(AppData.CameraIDFlight, viewport, projectionParameters);
-                AddRailCamera(AppData.CameraIDRail, viewport, projectionParameters);
-                AddTrack3DCamera(AppData.CameraIDTrack, viewport, projectionParameters);
-                AddSecurityCamera(AppData.CameraIDSecurity, viewport, projectionParameters);
+                AddFirstPersonCamera("fpc1", viewport, projectionParameters);
 
                 //since we have lots of cameras, which one is shown first
                 this.cameraManager.SetActiveCamera(camera => camera.ID.Equals(
-                    AppData.CameraIDSecurity));
+                    "fpc1"));
             }
-            else if (this.screenLayoutType == ScreenLayoutType.ThirdPerson)
-            {
-                AddThirdPersonCamera(AppData.CameraIDThirdPerson, viewport, projectionParameters);
-            }
+
             else if (this.screenLayoutType == ScreenLayoutType.Flight)
             {
                 AddFlightCamera(AppData.CameraIDFlight, viewport, projectionParameters);
@@ -1204,97 +1411,47 @@ namespace GDApp
             {
                 AddTrack3DCamera(AppData.CameraIDTrack, viewport, projectionParameters);
             }
-            else if (this.screenLayoutType == ScreenLayoutType.Pip)
-            {
-                AddMainAndPipCamera(viewport, projectionParameters);
-            }
-            else if(this.screenLayoutType == ScreenLayoutType.FirstPersonCollidable)
-            {
-                AddCollidableFirstPersonCamera(AppData.CameraIDCollidableFirstPerson, viewport, projectionParameters);
-            }
-            else if (this.screenLayoutType == ScreenLayoutType.Multi1x4) //splits the screen vertically x4
-            {
-                viewport = new Viewport(0, 0, (int)(graphics.PreferredBackBufferWidth / 4.0f), graphics.PreferredBackBufferHeight);
-                AddFirstPersonCamera(AppData.CameraIDFirstPerson, viewport, projectionParameters);
-
-                viewport.X += viewport.Width; //move the next camera over to start at x = 1/4 screen width
-                AddTrack3DCamera(AppData.CameraIDTrack, viewport, projectionParameters);
-
-                viewport.X += viewport.Width; //move the next camera over to start at x = 2/4 screen width
-                AddRailCamera(AppData.CameraIDRail, viewport, projectionParameters);
-
-                viewport.X += viewport.Width; //move the next camera over to start at x = 3/4 screen width
-                AddSecurityCamera(AppData.CameraIDSecurity, viewport, projectionParameters);
-            }
-            else if (this.screenLayoutType == ScreenLayoutType.Multi2x2) //splits the screen in 4 equal parts
-            {
-                //top left
-                viewport = new Viewport(0, 0, (int)(graphics.PreferredBackBufferWidth / 2.0f), (int)(graphics.PreferredBackBufferHeight / 2.0f));
-                AddFirstPersonCamera(AppData.CameraIDFirstPerson, viewport, projectionParameters);
-
-                //top right
-                viewport.X = viewport.Width;
-                AddTrack3DCamera(AppData.CameraIDTrack, viewport, projectionParameters);
-
-                //bottom left
-                viewport.X = 0;
-                viewport.Y = viewport.Height;
-                AddFlightCamera(AppData.CameraIDFlight, viewport, projectionParameters);
-
-                ////bottom right
-                viewport.X = viewport.Width;
-                viewport.Y = viewport.Height;
-                AddSecurityCamera(AppData.CameraIDSecurity, viewport, projectionParameters);
-            }
-            else //in all other cases just add a security camera - saves us having to implement all enum options at the moment
-            {
-                AddSecurityCamera(AppData.CameraIDSecurity, viewport, projectionParameters);
-            }
         }
-        private void AddCollidableFirstPersonCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
-        {
-    
-        }
+
         private void AddMainAndPipCamera(Viewport viewport, ProjectionParameters projectionParameters)
         {
             Camera3D camera3D = null;
             Transform3D transform = null;
 
-            //security camera
-            transform = new Transform3D(new Vector3(0, 40, 0),
-                Vector3.Zero, Vector3.One, -Vector3.UnitY, Vector3.UnitZ);
-
-            int width = 240;
-            int height = 180;
-            int xPos = this.resolution.X - width - 10;
-            Viewport pipViewport = new Viewport(xPos, 10, width, height);
-
-            camera3D = new Camera3D("sc1", ActorType.Camera, transform,
-                projectionParameters, pipViewport,
-                0f, StatusType.Update);
-
-
-            camera3D.AttachController(new SecurityCameraController("scc1", ControllerType.Security, 15, 2, Vector3.UnitX));
-
-            this.cameraManager.Add(camera3D);
 
             //1st person
             transform = new Transform3D(
                  new Vector3(0, 10, 100), Vector3.Zero,
                  Vector3.One, -Vector3.UnitZ, Vector3.UnitY);
-
+           
             camera3D = new Camera3D("fpc1", ActorType.Camera, transform,
                 projectionParameters, viewport,
                 1f, StatusType.Update);
-
+           
             camera3D.AttachController(new FirstPersonCameraController(
               "fpcc1", ControllerType.FirstPerson,
               AppData.CameraMoveKeys, AppData.CameraMoveSpeed,
-              AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre));
-
+              AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre, viewport));
+           
             //put controller later!
             this.cameraManager.Add(camera3D);
+
+
+
+            //add second 1st person camera
+            transform = new Transform3D(new Vector3(0, 40, 40), Vector3.One);
+
+            Camera3D cameraCoins = new Camera3D(AppData.CameraIDRail,
+                ActorType.Camera, transform,
+                projectionParameters, viewport,
+                0f, StatusType.Update);
+
+            this.cameraManager.Add(cameraCoins);
+
+
         }
+
+        #region camera types
         private void AddTrack3DCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
         {
             //doesnt matter where the camera starts because we reset immediately inside the Transform3DCurveController
@@ -1326,39 +1483,8 @@ namespace GDApp
             this.cameraManager.Add(camera3D);
 
         }
-        private void AddThirdPersonCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
-        {
-            Transform3D transform = Transform3D.Zero;
-
-            Camera3D camera3D = new Camera3D(id,
-                ActorType.Camera, transform,
-                projectionParameters, viewport,
-                0f, StatusType.Update);
-
-            camera3D.AttachController(new ThirdPersonController("tpcc1", ControllerType.ThirdPerson,
-                this.drivableModelObject, AppData.CameraThirdPersonDistance,
-                AppData.CameraThirdPersonScrollSpeedDistanceMultiplier,
-                AppData.CameraThirdPersonElevationAngleInDegrees,
-                AppData.CameraThirdPersonScrollSpeedElevationMultiplier,
-                LerpSpeed.Slow, LerpSpeed.VerySlow, this.inputManagerParameters));
-
-            this.cameraManager.Add(camera3D);
-
-        }
-        private void AddSecurityCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
-        {
-            Transform3D transform = new Transform3D(new Vector3(50, 10, 10), Vector3.Zero, Vector3.Zero, -Vector3.UnitX, Vector3.UnitY);
-
-            Camera3D camera3D = new Camera3D(id,
-                ActorType.Camera, transform,
-                projectionParameters, viewport,
-                0f, StatusType.Update);
-
-            camera3D.AttachController(new SecurityCameraController("scc1", ControllerType.Security, 15, 2, Vector3.UnitX));
-
-            this.cameraManager.Add(camera3D);
-
-        }
+      
+       
         private void AddFlightCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
         {
             Transform3D transform = new Transform3D(new Vector3(0, 10, 30), Vector3.Zero, Vector3.Zero, -Vector3.UnitZ, Vector3.UnitY);
@@ -1376,21 +1502,55 @@ namespace GDApp
         }
         private void AddFirstPersonCamera(string id, Viewport viewport, ProjectionParameters projectionParameters)
         {
-            Transform3D transform = new Transform3D(new Vector3(0, 10, 80), Vector3.Zero, Vector3.Zero, -Vector3.UnitZ, Vector3.UnitY);
 
-            Camera3D camera3D = new Camera3D(id,
+            //desk cam
+            Transform3D transform = new Transform3D(new Vector3(5, 12, 0), Vector3.Zero, Vector3.Zero, -Vector3.UnitZ, Vector3.UnitY);
+        
+            Camera3D camera3D = new Camera3D("fpc1",
+                ActorType.Camera, transform,
+                projectionParameters, viewport,
+                0f, StatusType.Update);
+        
+            camera3D.AttachController(new FirstPersonCameraController(
+                "fpcc1", ControllerType.FirstPerson,
+                AppData.CameraMoveKeys, AppData.CameraMoveSpeed, 
+                AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre, viewport));
+        
+            this.cameraManager.Add(camera3D);
+
+            //cash money cam
+            transform = new Transform3D(new Vector3(11, 10, 5), new Vector3(0, -75, 0), Vector3.Zero, -Vector3.UnitZ, Vector3.UnitY);
+
+            Camera3D cameraCash = new Camera3D("fpc2",
                 ActorType.Camera, transform,
                 projectionParameters, viewport,
                 0f, StatusType.Update);
 
-            camera3D.AttachController(new FirstPersonCameraController(
-                "fpcc1", ControllerType.FirstPerson,
-                AppData.CameraMoveKeys, AppData.CameraMoveSpeed, 
-                AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre));
+            cameraCash.AttachController(new FirstPersonCameraController(
+                "fpcc2", ControllerType.FirstPerson,
+                AppData.CameraMoveKeys, AppData.CameraMoveSpeed,
+                AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre, viewport));
 
-            this.cameraManager.Add(camera3D);
+            this.cameraManager.Add(cameraCash);
+
+
+            //coins cam
+            transform = new Transform3D(new Vector3(9, 7, -5), Vector3.Zero, Vector3.Zero, -Vector3.UnitZ, Vector3.UnitY);
+
+            Camera3D cameraCoin = new Camera3D("fpc3",
+                ActorType.Camera, transform,
+                projectionParameters, viewport,
+                0f, StatusType.Update);
+
+            cameraCoin.AttachController(new FirstPersonCameraController(
+                "fpcc3", ControllerType.FirstPerson,
+                AppData.CameraMoveKeys, AppData.CameraMoveSpeed,
+                AppData.CameraStrafeSpeed, AppData.CameraRotationSpeed, this.inputManagerParameters, this.screenCentre, viewport));
+
+            this.cameraManager.Add(cameraCoin);
 
         }
+        #endregion
         #endregion
 
         #region Load/Unload, Draw, Update
@@ -1437,8 +1597,11 @@ namespace GDApp
                 this.Exit();
 
             ToggleMenu();
+            InitializeNumberSystem();
+            //InitializeNumberSystem();
 
 #if DEBUG
+
             ToggleDebugInfo();
             DemoSetControllerPlayStatus();
             DemoSoundManager();
@@ -1494,8 +1657,6 @@ namespace GDApp
                     EventActionType.OnRemoveActor2D,
                     EventCategoryType.SystemRemove));
             }
-
-
 
         }
 

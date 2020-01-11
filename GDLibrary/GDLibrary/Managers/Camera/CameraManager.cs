@@ -51,6 +51,7 @@ namespace GDLibrary
         {
             this.cameraList = new List<Camera3D>(initialSize);
         }
+
         #region Event Handling
         protected override void RegisterForEventHandling(EventDispatcher eventDispatcher)
         {
@@ -73,6 +74,7 @@ namespace GDLibrary
             {
                 CycleActiveCamera();
             }
+
         }
 
         #endregion

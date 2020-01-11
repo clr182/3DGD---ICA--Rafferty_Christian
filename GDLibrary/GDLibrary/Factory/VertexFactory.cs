@@ -62,7 +62,6 @@ namespace GDLibrary
             return vertices;
         }
 
-
         public static VertexPositionColor[] GetSphereVertices(int radius, int angleInDegrees,
              out PrimitiveType primitiveType,
                             out int primitiveCount)

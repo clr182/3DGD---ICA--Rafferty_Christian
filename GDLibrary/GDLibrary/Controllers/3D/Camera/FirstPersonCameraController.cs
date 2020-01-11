@@ -8,6 +8,7 @@ Fixes:			None
 */
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace GDLibrary
@@ -15,18 +16,22 @@ namespace GDLibrary
 
     public class FirstPersonCameraController : UserInputController
     {
-        private Integer2 screenCentre;
+
         #region Fields
+        private Integer2 screenCentre;
+        float scale = 1.5f;
+        Viewport view;
         #endregion
 
         #region Properties
         #endregion
 
         public FirstPersonCameraController(string id, ControllerType controllerType, Keys[] moveKeys, float moveSpeed, float strafeSpeed, float rotationSpeed,
-            InputManagerParameters inputManagerParameters, Integer2 screenCentre)
+            InputManagerParameters inputManagerParameters, Integer2 screenCentre, Viewport viewport)
             : base(id, controllerType, moveKeys, moveSpeed, strafeSpeed, rotationSpeed, inputManagerParameters)
         {
             this.screenCentre = screenCentre;
+            this.view = viewport;
         }
 
         public override void HandleMouseInput(GameTime gameTime, Actor3D parentActor)
@@ -47,32 +52,38 @@ namespace GDLibrary
         {
             if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[0]))
             {
-                Vector3 moveDirection = gameTime.ElapsedGameTime.Milliseconds
-                             * this.MoveSpeed * parentActor.Transform.Look;
+                //Vector3 moveDirection = gameTime.ElapsedGameTime.Milliseconds
+                //             * this.MoveSpeed * parentActor.Transform.Look;
+                //
+                //
+                //
+                //moveDirection = moveDirection * new Vector3(1, 0, 1);
+                //
+                //parentActor.Transform.TranslateBy(moveDirection);
 
-                moveDirection = moveDirection * new Vector3(1, 0, 1);
 
-                parentActor.Transform.TranslateBy(moveDirection);
-            }
-            else if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[1]))
-            {
-                Vector3 moveDirection = -gameTime.ElapsedGameTime.Milliseconds
-                             * this.MoveSpeed * parentActor.Transform.Look;
 
-                moveDirection = moveDirection * new Vector3(1, 0, 1);
-                parentActor.Transform.TranslateBy(moveDirection);
             }
+            //else if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[1]))
+            //{
+            //    Vector3 moveDirection = -gameTime.ElapsedGameTime.Milliseconds
+            //                 * this.MoveSpeed * parentActor.Transform.Look;
+            //
+            //    moveDirection = moveDirection * new Vector3(1, 0, 1);
+            //    parentActor.Transform.TranslateBy(moveDirection);
+            //}
+            //
+            //if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[2]))
+            //{
+            //    parentActor.Transform.TranslateBy(-gameTime.ElapsedGameTime.Milliseconds
+            //                 * this.StrafeSpeed * parentActor.Transform.Right);
+            //}
+            //else if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[3]))
+            //{
+            //    parentActor.Transform.TranslateBy(gameTime.ElapsedGameTime.Milliseconds
+            //        * this.StrafeSpeed * parentActor.Transform.Right);
+            //}
 
-            if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[2]))
-            {
-                parentActor.Transform.TranslateBy(-gameTime.ElapsedGameTime.Milliseconds
-                             * this.StrafeSpeed * parentActor.Transform.Right);
-            }
-            else if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[3]))
-            {
-                parentActor.Transform.TranslateBy(gameTime.ElapsedGameTime.Milliseconds
-                    * this.StrafeSpeed * parentActor.Transform.Right);
-            }
         }
 
         //Add Equals, Clone, ToString, GetHashCode...

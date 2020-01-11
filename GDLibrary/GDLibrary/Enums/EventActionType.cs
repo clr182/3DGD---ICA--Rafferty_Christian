@@ -60,5 +60,9 @@ namespace GDLibrary
         OnNonePicked,
         OnAddActor2D,
         OnRemoveActor2D,
+
+
+        //Cash
+        OnMoneyClicked,
     }
 }

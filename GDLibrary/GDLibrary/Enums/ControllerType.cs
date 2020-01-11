@@ -33,6 +33,9 @@ namespace GDLibrary
         Video3D,
         TextRenderer,
 
+
+        CashControl,
+
         //Add more here...
     }
 }

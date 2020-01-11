@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Fonts\debugFont.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Fonts\debugFont.xnb</Output>
+      <Time>2019-12-17T18:16:37.080914+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Fonts\hudFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\hudFont.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\hudFont.xnb</Output>
+      <Time>2019-12-17T18:16:37.2349098+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Fonts\menu.spritefont</Source>
@@ -25,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\menu.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\menu.xnb</Output>
+      <Time>2019-12-17T18:16:37.2519099+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Fonts\mouse.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\mouse.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Fonts\mouse.xnb</Output>
+      <Time>2019-12-17T18:16:37.2699089+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Debug\Textures\checkerboard.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard.xnb</Output>
+      <Time>2019-12-17T18:16:37.1119129+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Ground\foliage.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\foliage.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\foliage.xnb</Output>
+      <Time>2019-12-17T18:16:37.8168951+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Ground\grass1.jpg</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass1.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass1.xnb</Output>
+      <Time>2019-12-17T18:16:37.842898+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Shrubs\shrub1.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub1.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub1.xnb</Output>
+      <Time>2019-12-17T18:16:37.9548921+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Shrubs\shrub2.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub2.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub2.xnb</Output>
+      <Time>2019-12-17T18:16:37.9848913+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Shrubs\shrub3.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub3.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Shrubs\shrub3.xnb</Output>
+      <Time>2019-12-17T18:16:38.013891+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Trees\tree1.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree1.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree1.xnb</Output>
+      <Time>2019-12-17T18:16:38.0398903+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Trees\tree2.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree2.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree2.xnb</Output>
+      <Time>2019-12-17T18:16:38.0648902+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Trees\tree3.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree3.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree3.xnb</Output>
+      <Time>2019-12-17T18:16:38.0958886+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Trees\tree4.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree4.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree4.xnb</Output>
+      <Time>2019-12-17T18:16:38.1688887+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Trees\tree5.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree5.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Trees\tree5.xnb</Output>
+      <Time>2019-12-17T18:16:38.2058861+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Props\Crates\crate1.jpg</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate1.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate1.xnb</Output>
+      <Time>2019-12-17T18:16:38.3758805+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Props\Crates\crate2.jpg</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate2.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\crate2.xnb</Output>
+      <Time>2019-12-17T18:16:38.3978802+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Props\tv.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\tv.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\tv.xnb</Output>
+      <Time>2019-12-17T18:16:38.347882+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\back.bmp</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\back.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\back.xnb</Output>
+      <Time>2019-12-17T18:16:38.5238785+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\front.bmp</Source>
@@ -178,8 +178,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\front.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\front.xnb</Output>
+      <Time>2019-12-17T18:16:38.565879+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\ground.bmp</Source>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\ground.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\ground.xnb</Output>
+      <Time>2019-12-17T18:16:38.5958755+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\left.bmp</Source>
@@ -196,8 +196,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\left.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\left.xnb</Output>
+      <Time>2019-12-17T18:16:38.6248757+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\right.bmp</Source>
@@ -205,8 +205,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\right.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\right.xnb</Output>
+      <Time>2019-12-17T18:16:38.6538793+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skybox\sky.bmp</Source>
@@ -214,8 +214,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\sky.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skybox\sky.xnb</Output>
+      <Time>2019-12-17T18:16:38.6808726+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\mouseicons.png</Source>
@@ -223,8 +223,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\mouseicons.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\mouseicons.xnb</Output>
+      <Time>2019-12-17T18:16:38.7508725+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\progress_gradient.png</Source>
@@ -232,8 +232,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_gradient.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_gradient.xnb</Output>
+      <Time>2019-12-17T18:16:38.7708713+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\progress_white.png</Source>
@@ -241,8 +241,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_white.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\progress_white.xnb</Output>
+      <Time>2019-12-17T18:16:38.7878721+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\reticuleClosed.png</Source>
@@ -250,8 +250,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleClosed.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleClosed.xnb</Output>
+      <Time>2019-12-17T18:16:38.8048715+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\reticuleDefault.png</Source>
@@ -259,8 +259,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleDefault.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleDefault.xnb</Output>
+      <Time>2019-12-17T18:16:38.8218698+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\reticuleOpen.png</Source>
@@ -268,8 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleOpen.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\reticuleOpen.xnb</Output>
+      <Time>2019-12-17T18:16:38.8388692+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\HUD\white.png</Source>
@@ -277,8 +277,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\white.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\white.xnb</Output>
+      <Time>2019-12-17T18:16:38.8588705+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Backgrounds\audiomenu.png</Source>
@@ -286,8 +286,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\audiomenu.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\audiomenu.xnb</Output>
+      <Time>2019-12-17T18:16:38.8918685+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Backgrounds\controlsmenu.png</Source>
@@ -295,8 +295,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\controlsmenu.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\controlsmenu.xnb</Output>
+      <Time>2019-12-17T18:16:38.9118684+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Backgrounds\exitmenu.png</Source>
@@ -304,8 +304,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenu.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenu.xnb</Output>
+      <Time>2019-12-17T18:16:38.9308671+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans.png</Source>
@@ -313,8 +313,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\exitmenuwithtrans.xnb</Output>
+      <Time>2019-12-17T18:16:38.9488664+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Backgrounds\mainmenu.PNG</Source>
@@ -322,8 +322,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\mainmenu.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Backgrounds\mainmenu.xnb</Output>
+      <Time>2019-12-17T18:16:38.9688659+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\UI\Menu\Buttons\genericbtn.png</Source>
@@ -331,8 +331,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Buttons\genericbtn.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\Menu\Buttons\genericbtn.xnb</Output>
+      <Time>2019-12-17T18:16:38.9978667+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Debug\Textures\checkerboard_greywhite.png</Source>
@@ -340,8 +340,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard_greywhite.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\checkerboard_greywhite.xnb</Output>
+      <Time>2019-12-17T18:16:37.1319132+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Debug\Textures\ml.png</Source>
@@ -349,8 +349,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\ml.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\ml.xnb</Output>
+      <Time>2019-12-17T18:16:37.1609116+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Debug\Textures\slj.jpg</Source>
@@ -358,8 +358,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\slj.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Debug\Textures\slj.xnb</Output>
+      <Time>2019-12-17T18:16:37.1799113+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Buildings\house-low-texture.jpg</Source>
@@ -367,8 +367,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Buildings\house-low-texture.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Buildings\house-low-texture.xnb</Output>
+      <Time>2019-12-17T18:16:37.3749062+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Fence\fence1.jpg</Source>
@@ -376,8 +376,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence1.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence1.xnb</Output>
+      <Time>2019-12-17T18:16:37.4069095+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Fence\fence2.jpg</Source>
@@ -385,8 +385,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence2.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence2.xnb</Output>
+      <Time>2019-12-17T18:16:37.4279051+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Fence\fence3.jpg</Source>
@@ -394,8 +394,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence3.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence3.xnb</Output>
+      <Time>2019-12-17T18:16:37.4509052+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Fence\fence4.png</Source>
@@ -403,8 +403,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence4.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Fence\fence4.xnb</Output>
+      <Time>2019-12-17T18:16:37.4989034+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Walls\backwall.jpg</Source>
@@ -412,8 +412,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\backwall.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\backwall.xnb</Output>
+      <Time>2019-12-17T18:16:37.5229034+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Walls\sidewall.jpg</Source>
@@ -421,8 +421,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\sidewall.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\sidewall.xnb</Output>
+      <Time>2019-12-17T18:16:37.5409028+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Architecture\Walls\wall.jpg</Source>
@@ -430,8 +430,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\wall.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Architecture\Walls\wall.xnb</Output>
+      <Time>2019-12-17T18:16:37.6109006+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Common\white64x64.png</Source>
@@ -439,8 +439,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Common\white64x64.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Common\white64x64.xnb</Output>
+      <Time>2019-12-17T18:16:37.7808962+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Ground\grass_highlevel.jpg</Source>
@@ -448,8 +448,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_highlevel.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_highlevel.xnb</Output>
+      <Time>2019-12-17T18:16:37.8808936+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Foliage\Ground\grass_midlevel.jpg</Source>
@@ -457,8 +457,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_midlevel.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\grass_midlevel.xnb</Output>
+      <Time>2019-12-17T18:16:37.9298918+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Landscape\canyon.jpg</Source>
@@ -466,8 +466,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Landscape\canyon.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Landscape\canyon.xnb</Output>
+      <Time>2019-12-17T18:16:38.2768826+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Skydome\skydome.jpg</Source>
@@ -475,8 +475,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skydome\skydome.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Skydome\skydome.xnb</Output>
+      <Time>2019-12-17T18:16:38.7188724+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Props\Crates\wc1_diffuse.tga</Source>
@@ -484,8 +484,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\wc1_diffuse.xnb</Output>
-      <Time>2018-11-30T13:18:40+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Crates\wc1_diffuse.xnb</Output>
+      <Time>2019-12-17T18:16:38.4848787+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Animated\alarm.png</Source>
@@ -493,8 +493,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Animated\alarm.xnb</Output>
-      <Time>2018-12-04T07:45:20+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Animated\alarm.xnb</Output>
+      <Time>2019-12-17T18:16:37.3209078+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\alarm1.png</Source>
@@ -502,8 +502,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm1.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm1.xnb</Output>
+      <Time>2019-12-17T18:16:37.6379029+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\alarm2.png</Source>
@@ -511,8 +511,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm2.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\alarm2.xnb</Output>
+      <Time>2019-12-17T18:16:37.6569015+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\billboardtexture.jpg</Source>
@@ -520,8 +520,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\billboardtexture.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\billboardtexture.xnb</Output>
+      <Time>2019-12-17T18:16:37.6798986+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\chevron1.png</Source>
@@ -529,8 +529,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron1.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron1.xnb</Output>
+      <Time>2019-12-17T18:16:37.699899+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\chevron2.png</Source>
@@ -538,8 +538,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron2.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\chevron2.xnb</Output>
+      <Time>2019-12-17T18:16:37.7198978+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\snow1.png</Source>
@@ -547,8 +547,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\snow1.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\snow1.xnb</Output>
+      <Time>2019-12-17T18:16:37.7398981+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Billboards\welcome.png</Source>
@@ -556,8 +556,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\welcome.xnb</Output>
-      <Time>2018-12-20T11:22:52+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Billboards\welcome.xnb</Output>
+      <Time>2019-12-17T18:16:37.7568967+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Level\level1.png</Source>
@@ -565,8 +565,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level1.xnb</Output>
-      <Time>2018-12-20T11:23:04+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level1.xnb</Output>
+      <Time>2019-12-17T18:16:38.3028832+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\white.png</Source>
@@ -574,8 +574,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\white.xnb</Output>
-      <Time>2018-12-21T09:01:22+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\white.xnb</Output>
+      <Time>2019-12-17T18:16:37.2929085+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Textures\Level\level_test.png</Source>
@@ -583,8 +583,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level_test.xnb</Output>
-      <Time>2018-12-21T10:32:18+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\level_test.xnb</Output>
+      <Time>2019-12-17T18:16:38.3228843+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Audio\boing.wav</Source>
@@ -592,8 +592,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\boing.xnb</Output>
-      <Time>2018-11-30T13:18:38+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\boing.xnb</Output>
+      <Time>2019-12-17T18:16:37.0319151+00:00</Time>
     </Item>
     <Item>
       <Source>Assets\Effects\Billboard.fx</Source>
@@ -601,8 +601,278 @@
       <Importer>EffectImporter</Importer>
       <Processor>EffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\Assets\Effects\Billboard.xnb</Output>
-      <Time>2018-12-22T11:58:58+00:00</Time>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Effects\Billboard.xnb</Output>
+      <Time>2019-12-17T18:16:37.2069179+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person1.jpg</Source>
+      <Name>Assets\Textures\Characters\Person1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person1.xnb</Output>
+      <Time>2020-01-02T18:19:19.0027102+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person2.jpg</Source>
+      <Name>Assets\Textures\Characters\Person2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person2.xnb</Output>
+      <Time>2020-01-02T18:24:24.4193511+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person3.jpg</Source>
+      <Name>Assets\Textures\Characters\Person3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person3.xnb</Output>
+      <Time>2020-01-02T18:24:38.4610034+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person4.jpg</Source>
+      <Name>Assets\Textures\Characters\Person4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person4.xnb</Output>
+      <Time>2020-01-02T18:24:49.6087277+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person5.jpg</Source>
+      <Name>Assets\Textures\Characters\Person5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person5.xnb</Output>
+      <Time>2020-01-02T18:24:58.869501+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person6.jpg</Source>
+      <Name>Assets\Textures\Characters\Person6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person6.xnb</Output>
+      <Time>2020-01-02T18:25:14.0051253+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person7.jpg</Source>
+      <Name>Assets\Textures\Characters\Person7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person7.xnb</Output>
+      <Time>2020-01-02T18:25:27.4937939+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person8.jpg</Source>
+      <Name>Assets\Textures\Characters\Person8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person8.xnb</Output>
+      <Time>2020-01-02T18:25:39.3214992+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person10.jpg</Source>
+      <Name>Assets\Textures\Characters\Person10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person10.xnb</Output>
+      <Time>2020-01-02T18:26:24.3793868+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Characters\Person9.jpg</Source>
+      <Name>Assets\Textures\Characters\Person9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Characters\Person9.xnb</Output>
+      <Time>2020-01-02T20:34:28.2496542+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Desk\desk1.jpg</Source>
+      <Name>Assets\Textures\Props\Desk\desk1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Desk\desk1.xnb</Output>
+      <Time>2020-01-02T22:22:23.6116462+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Desk\desk2.jpg</Source>
+      <Name>Assets\Textures\Props\Desk\desk2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Desk\desk2.xnb</Output>
+      <Time>2020-01-02T22:28:09.6919166+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Desk\Television.jpg</Source>
+      <Name>Assets\Textures\Props\Desk\Television</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Desk\Television.xnb</Output>
+      <Time>2020-01-02T19:27:00.5388326+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Desk\box.jpg</Source>
+      <Name>Assets\Textures\Props\Desk\box</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Desk\box.xnb</Output>
+      <Time>2020-01-02T22:30:44.5756533+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers.png</Source>
+      <Name>Assets\Textures\Numbers</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers.xnb</Output>
+      <Time>2020-01-02T23:38:36.3626768+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Dot.png</Source>
+      <Name>Assets\Textures\Numbers\Dot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Dot.xnb</Output>
+      <Time>2020-01-03T00:34:53.4749769+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Eight.png</Source>
+      <Name>Assets\Textures\Numbers\Eight</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Eight.xnb</Output>
+      <Time>2020-01-03T00:35:24.9869019+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Five.png</Source>
+      <Name>Assets\Textures\Numbers\Five</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Five.xnb</Output>
+      <Time>2020-01-03T00:33:07.0476686+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Four.png</Source>
+      <Name>Assets\Textures\Numbers\Four</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Four.xnb</Output>
+      <Time>2020-01-03T00:32:51.6876+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Nine.png</Source>
+      <Name>Assets\Textures\Numbers\Nine</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Nine.xnb</Output>
+      <Time>2020-01-03T00:34:02.5417899+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\One.png</Source>
+      <Name>Assets\Textures\Numbers\One</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\One.xnb</Output>
+      <Time>2020-01-03T00:31:36.4895726+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Seven.png</Source>
+      <Name>Assets\Textures\Numbers\Seven</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Seven.xnb</Output>
+      <Time>2020-01-03T00:33:36.3940699+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Six.png</Source>
+      <Name>Assets\Textures\Numbers\Six</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Six.xnb</Output>
+      <Time>2020-01-03T00:33:20.9119962+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Three.png</Source>
+      <Name>Assets\Textures\Numbers\Three</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Three.xnb</Output>
+      <Time>2020-01-03T00:32:32.2766569+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Two.png</Source>
+      <Name>Assets\Textures\Numbers\Two</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Two.xnb</Output>
+      <Time>2020-01-03T00:32:08.6698305+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Numbers\Zero.png</Source>
+      <Name>Assets\Textures\Numbers\Zero</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Numbers\Zero.xnb</Output>
+      <Time>2020-01-03T00:31:13.4642632+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Munny\fiddy.png</Source>
+      <Name>Assets\Textures\Props\Munny\fiddy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Munny\fiddy.xnb</Output>
+      <Time>2020-01-03T18:37:31.8704217+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Munny\fiver.png</Source>
+      <Name>Assets\Textures\Props\Munny\fiver</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Munny\fiver.xnb</Output>
+      <Time>2020-01-03T18:31:40.9187823+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Munny\tenner.png</Source>
+      <Name>Assets\Textures\Props\Munny\tenner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Munny\tenner.xnb</Output>
+      <Time>2020-01-03T18:32:56.2758924+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Props\Munny\twenny.png</Source>
+      <Name>Assets\Textures\Props\Munny\twenny</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Munny\twenny.xnb</Output>
+      <Time>2020-01-03T18:34:05.9122074+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -611,39 +881,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDAppContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDApp\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDAppContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T16:22:30+01:00</Value>
+        <Value>2011-09-01T17:22:30+01:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2019-05-04T00:47:10.1760306+01:00</Value>
+        <Value>2019-09-27T20:57:07.0273565+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

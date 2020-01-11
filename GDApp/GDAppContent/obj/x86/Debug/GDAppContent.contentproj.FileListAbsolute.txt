@@ -35,3 +35,5 @@ C:\Users\mcguinnn\Downloads\3DGD - ICA - v1.0\GDApp\GDAppContent\obj\x86\Debug\G
 C:\Users\mcguinnn\Downloads\3DGD - ICA - v1.0\GDApp\GDAppContent\obj\x86\Debug\GDAppContent.contentproj.CoreCompileInputs.cache
 C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDAppContent\obj\x86\Debug\GDAppContent.contentprojAssemblyReference.cache
 C:\Users\Niall\Downloads\3DGD - ICA - v1.1\3DGD - ICA - v1.1\GDApp\GDAppContent\obj\x86\Debug\GDAppContent.contentproj.CoreCompileInputs.cache
+C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDAppContent\obj\x86\Debug\GDAppContent.contentprojAssemblyReference.cache
+C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDAppContent\obj\x86\Debug\GDAppContent.contentproj.CoreCompileInputs.cache

@@ -33,7 +33,9 @@ namespace GDLibrary
             Keys.NumPad4, Keys.NumPad6,  //rotate left, rotate right
             Keys.NumPad1, Keys.NumPad3   //strafe left, strafe right
         };
-        public static readonly Keys[] CameraMoveKeys = { Keys.T, Keys.G, Keys.F, Keys.H, Keys.R, Keys.Y, Keys.V, Keys.B };
+        public static readonly Keys[] CameraMoveKeys = {Keys.T 
+            //Keys.T, Keys.G, Keys.F, Keys.H, Keys.R, Keys.Y, Keys.V, Keys.B
+        };
         public static readonly Keys[] CameraMoveKeys_Alt1 = { Keys.I, Keys.K, Keys.J, Keys.L };
         public static readonly Keys MenuShowHideKey = Keys.Escape;
         #endregion
@@ -130,6 +132,8 @@ namespace GDLibrary
         public static readonly string UnlitTexturedCubeVertexDataID = "unlit tex cube vertexdata";
         public static readonly string UnlitTexturedBillboardVertexDataID = "unlit tex billboard vertexdata";
         public static readonly string LitTexturedCubeVertexDataID = "lit tex cube vertexdata";
+
+        public static readonly string LitTexturedSphereVertexDataID = "lit tex sphere vertexdata";
         #endregion
 
         #region Effect parameter ids used by the effect dictionary

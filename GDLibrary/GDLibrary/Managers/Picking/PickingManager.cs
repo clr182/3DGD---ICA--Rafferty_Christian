@@ -94,6 +94,8 @@ namespace GDLibrary
             //remove the object if we want
             if (this.pickingBehaviourType == PickingBehaviourType.PickAndRemove)
             {
+
+
                 /*add code here to make a descision based on the ActorType and any keyboard, mouse or game pad input
                 e.g. 
                 if(this.collidee.ActorType == ActorType.CollidablePickup)
@@ -108,8 +110,19 @@ namespace GDLibrary
 
                 if (this.inputManagerParameters.MouseManager.IsLeftButtonClickedOnce())
                 {
+                    EventDispatcher.Publish(new EventData(collidee, EventActionType.OnMoneyClicked, EventCategoryType.Cash));
+
                     EventDispatcher.Publish(new EventData(collidee, EventActionType.OnRemoveActor, EventCategoryType.SystemRemove));
                 }  
+            }
+
+            if(this.pickingBehaviourType == PickingBehaviourType.PickOnly)
+            {
+                if (this.inputManagerParameters.MouseManager.IsLeftButtonClickedOnce() && collidee.ActorType == ActorType.Fifty)
+                {
+                     EventDispatcher.Publish(new EventData(collidee, EventActionType.OnMoneyClicked, EventCategoryType.Cash));
+                     
+                }
             }
 
 
