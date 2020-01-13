@@ -109,7 +109,7 @@ namespace GDLibrary
 
         public void addCash(float num)
         {
-              this.startingCash += num;
+              this.startingCash = this.startingCash + num;
         }
 
         public void minusCash(float num)
@@ -124,35 +124,42 @@ namespace GDLibrary
         }
 
         #region Event Handling
-        protected void EventDispatcher_CashChanged(EventData eventData)
+        protected void EventDispatcher_CashClicked(EventData eventData)
         {
-            if (eventData.EventType == EventActionType.OnMoneyClicked)
+            if (eventData.EventType == EventActionType.OnFiftyClicked)
             {
-                addCash(20);
+                addCash(2500.00f);
             }
-
-            
+            if (eventData.EventType == EventActionType.OnTwentyClicked)
+            {
+                addCash(1000.00f);
+            }
+            if (eventData.EventType == EventActionType.OnTenClicked)
+            {
+                addCash(500.00f);
+            }
+            if (eventData.EventType == EventActionType.OnFiveClicked)
+            {
+                addCash(250.00f);
+            }
         }
+
         protected override void RegisterForEventHandling(EventDispatcher eventDispatcher)
         {
-            eventDispatcher.CashEvent += EventDispatcher_CashChanged;
-            eventDispatcher.CashEvent += CallAddCash;
+            eventDispatcher.CashChanged += EventDispatcher_CashClicked;
             base.RegisterForEventHandling(eventDispatcher);
         }
         #endregion
 
-        private void CallAddCash(EventData eventData)
-        {
-            addCash(20);
-        }
-
-
+        //private void CallAddCash(EventData eventData)
+        //{
+        //    addCash(20);
+        //}
 
         private void CallMinusCash(EventData eventData)
         {
             minusCash(20);
         }
-
 
         protected override void HandleInput(GameTime gameTime)
         {
@@ -164,13 +171,10 @@ namespace GDLibrary
             {
                 minusCash(20);
             }
-
             
-
             base.HandleInput(gameTime);
         }
-
-
+        
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

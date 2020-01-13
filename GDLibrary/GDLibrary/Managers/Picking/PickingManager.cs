@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace GDLibrary
 {
@@ -14,16 +15,19 @@ namespace GDLibrary
         private CameraManager cameraManager;
         private readonly ObjectManager objectManager;
         private PickingBehaviourType pickingBehaviourType;
+        private List<CollidablePrimitiveObject> moneyList;
 
         public PickingManager(Game game, EventDispatcher eventDispatcher, StatusType statusType,
            InputManagerParameters inputManagerParameters, CameraManager cameraManager,
            ObjectManager objectManager,
+           List<CollidablePrimitiveObject> moneyList,
            PickingBehaviourType pickingBehaviourType)
            : base(game, eventDispatcher, statusType)
         {
             this.inputManagerParameters = inputManagerParameters;
             this.cameraManager = cameraManager;
             this.objectManager = objectManager;
+            this.moneyList = moneyList;
             this.pickingBehaviourType = pickingBehaviourType;
         }
 
@@ -36,13 +40,7 @@ namespace GDLibrary
             {
                 Ray mouseRay = this.inputManagerParameters.MouseManager.GetMouseRay(this.cameraManager.ActiveCamera);
 
-                foreach (IActor actor in this.objectManager.OpaqueDrawList)
-                {
-                    if (PickObject(gameTime, actor as Actor3D, mouseRay))
-                        break;
-                }
-
-                foreach (IActor actor in this.objectManager.TransparentDrawList)
+                foreach (IActor actor in this.moneyList)
                 {
                     if (PickObject(gameTime, actor as Actor3D, mouseRay))
                         break;
@@ -96,32 +94,28 @@ namespace GDLibrary
             {
 
 
-                /*add code here to make a descision based on the ActorType and any keyboard, mouse or game pad input
-                e.g. 
-                if(this.collidee.ActorType == ActorType.CollidablePickup)
-                {
-
-                }
-                else if(this.collidee.ActorType == ActorType.CollidablePlayer)
-                {
-
-                }
-                */
-
-                if (this.inputManagerParameters.MouseManager.IsLeftButtonClickedOnce())
-                {
-                    EventDispatcher.Publish(new EventData(collidee, EventActionType.OnMoneyClicked, EventCategoryType.Cash));
-
-                    EventDispatcher.Publish(new EventData(collidee, EventActionType.OnRemoveActor, EventCategoryType.SystemRemove));
-                }  
             }
 
             if(this.pickingBehaviourType == PickingBehaviourType.PickOnly)
             {
-                if (this.inputManagerParameters.MouseManager.IsLeftButtonClickedOnce() && collidee.ActorType == ActorType.Fifty)
+                if (this.inputManagerParameters.MouseManager.IsLeftButtonClickedOnce())
                 {
-                     EventDispatcher.Publish(new EventData(collidee, EventActionType.OnMoneyClicked, EventCategoryType.Cash));
-                     
+                    if (collidee.ActorType == ActorType.Fifty)
+                    {
+                        EventDispatcher.Publish(new EventData(collidee, EventActionType.OnFiftyClicked, EventCategoryType.Cash));
+                    }
+                    if (collidee.ActorType == ActorType.Twenty)
+                    {
+                        EventDispatcher.Publish(new EventData(collidee, EventActionType.OnTwentyClicked, EventCategoryType.Cash));
+                    }
+                    if (collidee.ActorType == ActorType.Ten)
+                    {
+                        EventDispatcher.Publish(new EventData(collidee, EventActionType.OnTenClicked, EventCategoryType.Cash));
+                    }
+                    if (collidee.ActorType == ActorType.Five)
+                    {
+                        EventDispatcher.Publish(new EventData(collidee, EventActionType.OnFiveClicked, EventCategoryType.Cash));
+                    }
                 }
             }
 

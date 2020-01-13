@@ -64,5 +64,12 @@ namespace GDLibrary
 
         //Cash
         OnMoneyClicked,
+        OnFiftyClicked,
+        OnTwentyClicked,
+        OnTenClicked,
+        OnFiveClicked,
+
+        //customer
+        OnCustomerChanged,
     }
 }

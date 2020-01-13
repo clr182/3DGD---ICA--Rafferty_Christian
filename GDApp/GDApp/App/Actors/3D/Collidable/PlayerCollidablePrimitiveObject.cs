@@ -64,7 +64,7 @@ namespace GDLibrary
                 if (simpleZoneObject.ID.Equals("camera trigger zone 1"))
                 {
                     //publish an event e.g sound, health progress
-                    object[] additionalParameters = { "boing" };
+                    object[] additionalParameters = { "ragtime" };
                     EventDispatcher.Publish(new EventData(EventActionType.OnPlay, EventCategoryType.Sound2D, additionalParameters));
                 }
 

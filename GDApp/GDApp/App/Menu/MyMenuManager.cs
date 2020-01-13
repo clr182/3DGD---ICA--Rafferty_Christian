@@ -115,7 +115,7 @@ namespace GDApp
         private void DoMenuClickSound()
         {
             //e.g. play a boing
-            object[] additionalParameters = { "boing" };
+            object[] additionalParameters = { "ragtime" };
             EventDispatcher.Publish(new EventData(EventActionType.OnPlay, EventCategoryType.Sound2D, additionalParameters));
         }
 

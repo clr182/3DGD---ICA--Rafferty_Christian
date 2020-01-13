@@ -139,6 +139,7 @@
     <Compile Include="GDLibrary\Managers\Menu\MenuManager.cs" />
     <Compile Include="GDLibrary\Managers\Picking\PickingManager.cs" />
     <Compile Include="GDLibrary\Managers\Sound\SoundManager.cs" />
+    <Compile Include="GDLibrary\Managers\Time\TimeManager.cs" />
     <Compile Include="GDLibrary\Managers\UI\UIManager.cs" />
     <Compile Include="GDLibrary\Parameters\2D\Transform2D.cs" />
     <Compile Include="GDLibrary\Parameters\Effect\BasicEffectParameters.cs" />

@@ -45,6 +45,9 @@ namespace GDLibrary
         TwentyC,
         TenC,
         FiveC,
+
+        //customer
+        Customer,
     }
 }
 

@@ -51,11 +51,17 @@ namespace GDApp
         private CashManager cashManager;
 
         //Misc
-        private Queue<CollidablePrimitiveObject> customers = new Queue<CollidablePrimitiveObject>();
+        private Queue<PrimitiveObject> customers = new Queue<PrimitiveObject>();
         private Vector2[] arrOfClippedNumTexPoints = new Vector2[8];
         private float cashRegisterFloat = 123770;
         private IActor drivableModelObject;
         private List<CollidablePrimitiveObject> moneyList= new List<CollidablePrimitiveObject>();
+
+        public UITextureObject QueueCounter;
+        private TimeManager timeManager;
+        private UITextureObject popUpDialogBox;
+        private UITextureObject timerBox;
+        private UIProgressController uiProgressController;
         #endregion
 
         #region Constructors
@@ -69,6 +75,7 @@ namespace GDApp
         #region Initialization
         protected override void Initialize()
         {
+            
             Window.Title = "Custodian of Capital";
 
             this.cameraLayoutType = CameraLayoutType.Multi;
@@ -202,13 +209,21 @@ namespace GDApp
 
             #region picking manager
             this.pickingManager = new PickingManager(this, this.eventDispatcher, StatusType.Update,
-               this.inputManagerParameters, this.cameraManager, this.object3DManager, PickingBehaviourType.PickOnly);
+               this.inputManagerParameters, this.cameraManager, this.object3DManager, this.moneyList, PickingBehaviourType.PickOnly);
             Components.Add(this.pickingManager);
             #endregion
 
+            #region uiProgrssController
+            //add a controller which listens for pickupeventdata send when the player (or red box) collects the box on the left
+             //just a random number between 0 and max to demonstrate we can set initial progress value
+            this.uiProgressController = new UIProgressController(AppData.PlayerOneProgressControllerID,
+                ControllerType.UIProgress, 0, 10, this.eventDispatcher, this.customerManager);
+            #endregion
+
             #region Customer manager
+            EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID];
             this.customerManager = new CustomerManager(this, this.eventDispatcher, StatusType.Drawn,
-                this.customers);
+                this.customers, this.uiProgressController, this.object3DManager);
             Components.Add(this.customerManager);
             //InitializeNumberBlocks();
             #endregion
@@ -217,8 +232,11 @@ namespace GDApp
             this.cashManager = new CashManager(this, this.eventDispatcher, this.inputManagerParameters, this.object3DManager, this.pickingManager, StatusType.Update, 
                 this.cashRegisterFloat);
             Components.Add(this.cashManager);
+            #endregion
 
-           
+            #region time manager
+            this.timeManager = new TimeManager(this);
+            Components.Add(this.timeManager);
             #endregion
         }
 
@@ -227,50 +245,170 @@ namespace GDApp
             spawnAmountOfCustomers(5);
         }
 
-
-
         private void spawnAmountOfCustomers(int amount)
         {
             Transform3D transform;
             CollidablePrimitiveObject texturedPrimitiveObject;
             PrimitiveObject cloneTexturedPrimitiveObject = null;
-
+        
             int X = 30;
             int Y = 8;
             int Z = 0;
             int RandX, RandY, RandZ, RandTextureNo;
             
             transform = new Transform3D(new Vector3(X, Y, Z), new Vector3(4, 20, 14));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "character" + 1);
-            this.object3DManager.Add(texturedPrimitiveObject);
-            this.customers.Enqueue(texturedPrimitiveObject);
-
+            texturedPrimitiveObject = CreateTexturedBox("character" + 1, transform, "character" + 1, ActorType.CollidablePickup);
+            texturedPrimitiveObject.ActorType = ActorType.Customer;
+            this.customerManager.CustomerQueue.Enqueue(texturedPrimitiveObject);
+        
             Random randY = new Random();
             Random randZ = new Random();
             Random randTextureNo = new Random();
-
+        
             for (int i = 0; i < amount; i++)
             {
                 RandY = randY.Next(10, 30);
                 RandZ = randY.Next(5, 25);
                 RandTextureNo = randTextureNo.Next(1, 10);
                 X += 10;
-
+        
                 cloneTexturedPrimitiveObject = texturedPrimitiveObject.Clone() as PrimitiveObject;
                 cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(X, Y, Z);
                 cloneTexturedPrimitiveObject.Transform.Scale = new Vector3(4, RandY, RandZ);
+                cloneTexturedPrimitiveObject.ActorType = ActorType.Customer;
                 cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["character" + RandTextureNo];
                 cloneTexturedPrimitiveObject.ID = i + " customer";
-
-                this.object3DManager.Add(cloneTexturedPrimitiveObject);
-                this.customers.Enqueue(texturedPrimitiveObject);
+        
+                this.customerManager.CustomerQueue.Enqueue(cloneTexturedPrimitiveObject);
+                //this.customers.Enqueue(texturedPrimitiveObject);
             }
+            addCustomerQueueTo3DObjectManager();
         }
+
+        private void addCustomerQueueTo3DObjectManager()
+        {
+            foreach (Actor3D actor in this.customerManager.CustomerQueue)
+            {
+                this.object3DManager.Add(actor);
+            }
+
+           
+        }
+
+
+
 
         private void InitializeUI()
         {
             InitializeUIMouse();
+            InitializeUITextures();
+            //InitializeUIDialog();
             InitializeUIProgress();
+        }
+
+        private void InitializeUITextures()
+        {
+            Transform2D transform;
+            Texture2D texture;
+
+            texture = this.textureDictionary["Queue"];
+
+            transform = new Transform2D(
+                new Vector2(1100, 20),
+                0,
+                new Vector2(.6f, .6f),
+                Vector2.Zero,
+                new Integer2(25, 25)
+                );
+
+            this.QueueCounter = new UITextureObject(
+                "uiQueueCounter",
+                ActorType.UITexture,
+                StatusType.Drawn,
+                transform,
+                Color.Green,
+                SpriteEffects.None,
+                0.1f,
+                texture
+                );
+            this.uiManager.Add(QueueCounter);
+
+            DrawnActor2D text;
+
+            transform = new Transform2D(
+                new Vector2(1050, 15),
+                0,
+                new Vector2(3.8f, 3.8f),
+                Vector2.Zero,
+                new Integer2(25, 25)
+            );
+
+            string queueCount = this.customers.Count.ToString();
+
+            text = new UITextObject(
+                "QueueText",
+                ActorType.UIText,
+                StatusType.Drawn,
+                transform,
+                Color.GreenYellow,
+                SpriteEffects.None,
+                0.1f,
+                queueCount,
+                this.fontDictionary["menu"]
+                );
+            this.uiManager.Add(text);
+        }
+
+        public void InitializeUIDialog()
+        {
+            Transform2D transform;
+            Texture2D texture;
+
+            texture = this.textureDictionary["popUp"];
+            float center = (float)this.screenCentre.X;
+            transform = new Transform2D(
+                new Vector2(0, this.screenCentre.Y),
+                0,
+                new Vector2(.5f, .4f),
+                Vector2.Zero,
+                new Integer2(25, 25)
+                );
+
+            this.popUpDialogBox = new UITextureObject(
+                "popUpDialogBox",
+                ActorType.UITexture,
+                StatusType.Drawn,
+                transform,
+                Color.White,
+                SpriteEffects.None,
+                0.1f,
+                texture
+                );
+            this.uiManager.Add(popUpDialogBox);
+
+            DrawnActor2D text;
+
+            transform = new Transform2D(
+                new Vector2(30, this.screenCentre.Y + 30),
+                0,
+                new Vector2(1f, 1f),
+                Vector2.Zero,
+                new Integer2(25, 25)
+            );
+
+            text = new UITextObject(
+                "QueueText",
+                ActorType.UIText,
+                StatusType.Drawn,
+                transform,
+                Color.GreenYellow,
+                SpriteEffects.None,
+                0.1f,
+                "one cheese burger   5.99!",
+                this.fontDictionary["menu"]
+            );
+            this.uiManager.Add(text);
+
         }
 
         private void InitializeUIProgress()
@@ -302,11 +440,11 @@ namespace GDApp
                     1,
                     texture);
 
-            //add a controller which listens for pickupeventdata send when the player (or red box) collects the box on the left
-            startValue = 0; //just a random number between 0 and max to demonstrate we can set initial progress value
+            
+
             textureObject.AttachController(
-                new UIProgressController(AppData.PlayerOneProgressControllerID, 
-                ControllerType.UIProgress, startValue, 10, this.eventDispatcher));
+                uiProgressController
+                );
 
             textureObject.AttachController(
                 new UIProgressIncrementController("bla",
@@ -316,26 +454,6 @@ namespace GDApp
                 1000, //1 sec between update
                 1)); //add 1 every 1 sec
 
-            this.uiManager.Add(textureObject);
-            #endregion
-
-
-            #region Player 2 Progress Bar
-            position = new Vector2(graphics.PreferredBackBufferWidth / 2.0f + separation, verticalOffset);
-            transform = new Transform2D(position, 0, scale, Vector2.Zero, new Integer2(texture.Width, texture.Height));
-
-            textureObject = new UITextureObject(AppData.PlayerTwoProgressID,
-                    ActorType.UITexture,
-                    StatusType.Drawn | StatusType.Update,
-                    transform,
-                    Color.Red,
-                    SpriteEffects.None,
-                    1,
-                    texture);
-
-            //add a controller which listens for pickupeventdata send when the player (or red box) collects the box on the left
-            startValue = 4; //just a random number between 0 and max to demonstrate we can set initial progress value
-            textureObject.AttachController(new UIProgressController(AppData.PlayerTwoProgressControllerID, ControllerType.UIProgress, startValue, 10, this.eventDispatcher));
             this.uiManager.Add(textureObject);
             #endregion
         }
@@ -363,34 +481,34 @@ namespace GDApp
 
         public void initializeTVScreen()
         {
-            string strText = cashManager.StartingCash.ToString();
-            SpriteFont strFont = this.fontDictionary["menu"];
-            Vector2 strDim = strFont.MeasureString(strText);
-            strDim /= 2.0f;
-
-            Transform2D transform = new Transform2D(
-                (Vector2)this.screenCentre,
-                0, new Vector2(1, 1),
-                strDim,
-                new Integer2(1, 1));
-
-            UITextObject newTextObj = new UITextObject(
-                "cost", ActorType.UIText,
-                StatusType.Drawn | StatusType.Update,
-                transform,
-                Color.Red,
-                SpriteEffects.None,
-                0,
-                strText,
-                strFont
-               );
-
-            
-            EventDispatcher.Publish(new EventData(
-                    "",
-                    newTextObj, //handle to "win!"
-                    EventActionType.OnAddActor2D,
-                    EventCategoryType.SystemAdd));
+        //    string strText = cashManager.StartingCash.ToString();
+        //    SpriteFont strFont = this.fontDictionary["menu"];
+        //    Vector2 strDim = strFont.MeasureString(strText);
+        //    strDim /= 2.0f;
+        //
+        //    Transform2D transform = new Transform2D(
+        //        (Vector2)this.screenCentre,
+        //        0, new Vector2(1, 1),
+        //        strDim,
+        //        new Integer2(1, 1));
+        //
+        //    UITextObject newTextObj = new UITextObject(
+        //        "cost", ActorType.UIText,
+        //        StatusType.Drawn | StatusType.Update,
+        //        transform,
+        //        Color.Red,
+        //        SpriteEffects.None,
+        //        0,
+        //        strText,
+        //        strFont
+        //       );
+        //
+        //    
+        //    EventDispatcher.Publish(new EventData(
+        //            "",
+        //            newTextObj, //handle to "win!"
+        //            EventActionType.OnAddActor2D,
+        //            EventCategoryType.SystemAdd));
         }
         #endregion
 
@@ -509,7 +627,6 @@ namespace GDApp
             int fifthNum = int.Parse(charArr[4].ToString());
             int sixthNum = int.Parse(charArr[5].ToString());
 
-
             temp[0] = NumberTextures[firstNum];
             temp[0] = NumberTextures[secondNum];
             temp[1] = NumberTextures[thirdNum];
@@ -535,7 +652,9 @@ namespace GDApp
                 //non-collidable
                 InitializeSkyBox(worldScale);
                 InitializeNonCollidableGround(worldScale);
-                
+                InitializeNonCollidableCeiling(worldScale);
+
+
                 initializeTVScreen();
                 //collidable
                 InitializeCollidableProps();
@@ -561,7 +680,7 @@ namespace GDApp
             #region Archetype
             //we need to do an "as" typecast since the dictionary holds DrawnActor3D types
             archTexturedPrimitiveObject = this.objectArchetypeDictionary[AppData.UnlitTexturedQuadArchetypeID] as PrimitiveObject;
-            archTexturedPrimitiveObject.Transform.Scale *= new Vector3(150, 100, 100);
+            archTexturedPrimitiveObject.Transform.Scale *= new Vector3(190, 50, 50);
             #endregion
             //demonstrates how we can simply clone an archetypal primitive object and re-use by re-cloning
             
@@ -569,50 +688,68 @@ namespace GDApp
 
 
             #region ring ropes
-            ////back
-            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            //cloneTexturedPrimitiveObject.ID = "skybox_back";
-            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 50, -75);
-            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_back"];
-            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
-            //
-            ////left
-            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            //cloneTexturedPrimitiveObject.ID = "skybox_left";
-            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(-75, 50, 0);
-            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 90, 0);
-            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_left"];
-            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
-            //
-            ////right
-            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            //cloneTexturedPrimitiveObject.ID = "skybox_right";
-            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(75, 50, 0);
-            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(00, -90, 0);
-            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_right"];
-            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
-            //
-            ////front
-            //cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
-            //cloneTexturedPrimitiveObject.ID = "skybox_front";
-            //cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(0, 50, 75);
-            //cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 180, 0);
-            //cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["skybox_front"];
-            //this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            //back
+            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.ID = "wall_back";
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(55, 15, -75);
+            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["wallL"];
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            
+            //left
+            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.ID = "wall_left";
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(-40, 15, 0);
+            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 90, 0);
+            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["wallL"];
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            
+            //right
+            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.ID = "wall_right";
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(150, 15, 0);
+            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(00, -90, 0);
+            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["wallL"];
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
+            
+            //front
+            cloneTexturedPrimitiveObject = archTexturedPrimitiveObject.Clone() as PrimitiveObject;
+            cloneTexturedPrimitiveObject.ID = "wall_front";
+            cloneTexturedPrimitiveObject.Transform.Translation = new Vector3(55, 15, 75);
+            cloneTexturedPrimitiveObject.Transform.Rotation = new Vector3(0, 180, 0);
+            cloneTexturedPrimitiveObject.EffectParameters.Texture = this.textureDictionary["wallL"];
+            this.object3DManager.Add(cloneTexturedPrimitiveObject);
 
             #endregion 
         }
 
         private void InitializeNonCollidableGround(int worldScale)
         {
-            Vector3 worldSize = new Vector3(150,150,150);
+            Vector3 worldSize = new Vector3(300,200,200);
             Transform3D transform = new Transform3D(new Vector3(0, 0, 0), new Vector3(-90, 0, 0), worldSize,
               Vector3.UnitZ, Vector3.UnitY);
 
             EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
-            effectParameters.Texture = this.textureDictionary["grass1"];
+            effectParameters.Texture = this.textureDictionary["ground"];
 
             PrimitiveObject primitiveObject = new PrimitiveObject("ground", ActorType.Helper,
+                    transform,
+                    effectParameters,
+                    StatusType.Drawn | StatusType.Update,
+                    this.vertexDictionary[AppData.UnlitTexturedQuadVertexDataID]);
+
+            this.object3DManager.Add(primitiveObject);
+        }
+
+        private void InitializeNonCollidableCeiling(int worldScale)
+        {
+            Vector3 worldSize = new Vector3(300, 200, 200);
+            Transform3D transform = new Transform3D(new Vector3(0, 40, 0), new Vector3(-270, 0, 0), worldSize,
+              Vector3.UnitZ, Vector3.UnitY);
+
+            EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
+            effectParameters.Texture = this.textureDictionary["ceiling"];
+
+            PrimitiveObject primitiveObject = new PrimitiveObject("ceiling", ActorType.Helper,
                     transform,
                     effectParameters,
                     StatusType.Drawn | StatusType.Update,
@@ -642,62 +779,66 @@ namespace GDApp
 
             #region desk
             transform = new Transform3D(new Vector3(20, 5, 00), new Vector3(8, 8, 25));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            texturedPrimitiveObject = CreateTexturedBox("desk1",transform, "desk1", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
-
+            
             transform = new Transform3D(new Vector3(13, 4, 0), new Vector3(8, 4, 25));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "desk2");
+            texturedPrimitiveObject = CreateTexturedBox("desk2",transform, "desk2", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
-
+            
             transform = new Transform3D(new Vector3(12, 5, 17), new Vector3(25, 8, 8));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            texturedPrimitiveObject = CreateTexturedBox("desk3",transform, "desk1", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
-
+            
             transform = new Transform3D(new Vector3(12, 5, -17), new Vector3(25, 8, 8));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "desk1");
+            texturedPrimitiveObject = CreateTexturedBox("desk4",transform, "desk1", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
             #endregion
             
             #region desk objects
             //pc
             transform = new Transform3D(new Vector3(13, 8, 0), new Vector3(.2f, 4, 4));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "tele");
+            texturedPrimitiveObject = CreateTexturedBox("tele", transform, "tele", ActorType.CollidableArchitecture);
+            this.object3DManager.Add(texturedPrimitiveObject);
+
+            //postit
+            transform = new Transform3D(new Vector3(15f, 8f, -8), new Vector3(.01f, 1.3f, 1));
+            texturedPrimitiveObject = CreateTexturedBox("postIt", transform, "postIt", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
 
             //cash
             transform = new Transform3D(new Vector3(13, 6.5f, 5), new Vector3(3, 1, 1.5f));
-            texturedPrimitiveObject = CreateTexturedBox(transform, "cashbox");
+            texturedPrimitiveObject = CreateTexturedBox("cashbox1", transform, "cashbox", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
 
             //coins
             transform = new Transform3D(new Vector3(13, 6.5f, -5), new Vector3(0, 0, 45), new Vector3(3, 1, 1.5f), Vector3.Zero, Vector3.Zero);
-            texturedPrimitiveObject = CreateTexturedBox(transform, "cashbox");
+            texturedPrimitiveObject = CreateTexturedBox("cashbox2", transform, "cashbox", ActorType.CollidableArchitecture);
             this.object3DManager.Add(texturedPrimitiveObject);
             #endregion
 
             #region cash
             CollidablePrimitiveObject fiver = null;
-            transform = new Transform3D(new Vector3(12, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
-            fiver = CreateTexturedBox(transform, "fiver");
+            transform = new Transform3D(new Vector3(12, 7f, 5), new Vector3(0, 0, 0), new Vector3(.02f, .75f, 1.5f), Vector3.UnitX, Vector3.UnitY);
+            fiver = CreateTexturedBox("five",transform, "fiver", ActorType.Five);
             this.object3DManager.Add(fiver);
             this.moneyList.Add(fiver);
 
             CollidablePrimitiveObject tenner = null;
-            transform = new Transform3D(new Vector3(12.5f, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
-            tenner = CreateTexturedBox(transform, "tenner");
+            transform = new Transform3D(new Vector3(12.5f, 7f, 5), new Vector3(0, 0, 0), new Vector3(.02f, .75f, 1.5f), Vector3.UnitX, Vector3.UnitY);
+            tenner = CreateTexturedBox("ten", transform, "tenner", ActorType.Ten);
             this.object3DManager.Add(tenner);
             this.moneyList.Add(tenner);
 
             CollidablePrimitiveObject twenty = null;
-            transform = new Transform3D(new Vector3(13f, 7f, 5), new Vector3(30, 90, 0), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
-            twenty = CreateTexturedBox(transform, "twenny");
+            transform = new Transform3D(new Vector3(13f, 7f, 5), new Vector3(0, 0, 0), new Vector3(.02f, .75f, 1.5f), Vector3.UnitX, Vector3.UnitY);
+            twenty = CreateTexturedBox("twenty", transform, "twenny", ActorType.Twenty);
             this.object3DManager.Add(twenty);
             this.moneyList.Add(twenty);
 
             CollidablePrimitiveObject fifty = null;
-            transform = new Transform3D(new Vector3(13.5f, 7f, 5), new Vector3(30, 90,0 ), new Vector3(1.5f, .75f, .02f), Vector3.Zero, Vector3.Zero);
-            fifty = CreateTexturedBox(transform, "fiddy");
-            fifty.ActorType = ActorType.Fifty;
+            transform = new Transform3D(new Vector3(13.5f, 7f, 5), new Vector3(0, 0, 0), new Vector3(.02f, .75f, 1.5f), Vector3.UnitX, Vector3.UnitY);
+            fifty = CreateTexturedBox("fifty",transform, "fiddy", ActorType.Fifty);
             this.object3DManager.Add(fifty);
             this.moneyList.Add(fifty);
             #endregion
@@ -710,7 +851,7 @@ namespace GDApp
 
 
 
-        private CollidablePrimitiveObject CreateTexturedBox(Transform3D transform3d, string textureFromDictionary)
+        private CollidablePrimitiveObject CreateTexturedBox(string id, Transform3D transform3d, string textureFromDictionary, ActorType actorType)
         {
             CollidablePrimitiveObject texturedPrimitiveObject = null;
             EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID].Clone() as EffectParameters;
@@ -720,9 +861,9 @@ namespace GDApp
 
             BoxCollisionPrimitive collisionPrimitive = new BoxCollisionPrimitive();
 
-            texturedPrimitiveObject = new CollidablePrimitiveObject("collidable lit cube ",
+            texturedPrimitiveObject = new CollidablePrimitiveObject(id,
                 //this is important as it will determine how we filter collisions in our collidable player CDCR code
-                ActorType.CollidableArchitecture,
+                actorType,
                 transform3d,
                 effectParameters,
                 StatusType.Drawn | StatusType.Update,
@@ -1177,11 +1318,15 @@ namespace GDApp
             //ui
             this.textureDictionary.Load("Assets/Textures/UI/HUD/reticuleDefault");
             this.textureDictionary.Load("Numbers", "Assets/Textures/Numbers");
+            this.textureDictionary.Load("Queue", "Assets/Textures/UI/HUD/Queue");
+            this.textureDictionary.Load("popUp", "Assets/Textures/UI/HUD/popUp");
+            this.textureDictionary.Load("timer", "Assets/Textures/UI/HUD/timer");
 
             //environment
             this.textureDictionary.Load("Assets/Textures/Props/Crates/crate1"); //demo use of the shorter form of Load() that generates key from asset name
             this.textureDictionary.Load("Assets/Textures/Props/Crates/crate2");
             this.textureDictionary.Load("Assets/Textures/Foliage/Ground/grass1");
+            this.textureDictionary.Load("ground", "Assets/Textures/Foliage/Ground/ground");
             this.textureDictionary.Load("skybox_back", "Assets/Textures/Skybox/back");
             this.textureDictionary.Load("skybox_left", "Assets/Textures/Skybox/left");
             this.textureDictionary.Load("skybox_right", "Assets/Textures/Skybox/right");
@@ -1264,6 +1409,9 @@ namespace GDApp
 
             //Levels
             this.textureDictionary.Load("Assets/Textures/Level/level1");
+            this.textureDictionary.Load("postIt", "Assets/Textures/Level/postit");
+            this.textureDictionary.Load("wallL", "Assets/Textures/Landscape/wall");
+            this.textureDictionary.Load("ceiling", "Assets/Textures/Landscape/ceiling");
         }
         #endregion
         private void LoadRails()
@@ -1421,7 +1569,7 @@ namespace GDApp
 
             //1st person
             transform = new Transform3D(
-                 new Vector3(0, 10, 100), Vector3.Zero,
+                 new Vector3(0, 10, 110), Vector3.Zero,
                  Vector3.One, -Vector3.UnitZ, Vector3.UnitY);
            
             camera3D = new Camera3D("fpc1", ActorType.Camera, transform,
@@ -1713,7 +1861,7 @@ namespace GDApp
             if (this.keyboardManager.IsFirstKeyPress(Keys.B))
             {
                 //add event to play mouse click
-                object[] additionalParameters = { "boing" };
+                object[] additionalParameters = { "ragtime" };
                 EventDispatcher.Publish(new EventData(EventActionType.OnPlay, EventCategoryType.Sound2D, additionalParameters));
             }
         }

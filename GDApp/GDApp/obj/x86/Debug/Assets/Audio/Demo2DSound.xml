@@ -14,8 +14,8 @@
 
     Wave
     {
-        Name = boing;
-        File = boing.wav;
+        Name = ragtime;
+        File = ragtime.wav;
         Build Settings Last Modified Low = 809922770;
         Build Settings Last Modified High = 30430317;
 

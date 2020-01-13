@@ -52,14 +52,14 @@ namespace GDLibrary
         {
             if (this.InputManagerParameters.KeyboardManager.IsKeyDown(this.MoveKeys[0]))
             {
-                //Vector3 moveDirection = gameTime.ElapsedGameTime.Milliseconds
-                //             * this.MoveSpeed * parentActor.Transform.Look;
-                //
-                //
-                //
-                //moveDirection = moveDirection * new Vector3(1, 0, 1);
-                //
-                //parentActor.Transform.TranslateBy(moveDirection);
+                Vector3 moveDirection = gameTime.ElapsedGameTime.Milliseconds
+                             * this.MoveSpeed * parentActor.Transform.Look;
+                
+                
+                
+                moveDirection = moveDirection * new Vector3(1, 0, 1);
+                
+                parentActor.Transform.TranslateBy(moveDirection);
 
 
 

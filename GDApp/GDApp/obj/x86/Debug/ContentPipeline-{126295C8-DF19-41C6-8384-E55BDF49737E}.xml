@@ -874,6 +874,78 @@
       <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Props\Munny\twenny.xnb</Output>
       <Time>2020-01-03T18:34:05.9122074+00:00</Time>
     </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\Queue.png</Source>
+      <Name>Assets\Textures\UI\HUD\Queue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\Queue.xnb</Output>
+      <Time>2020-01-12T00:22:53.1637263+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Level\postit.png</Source>
+      <Name>Assets\Textures\Level\postit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Level\postit.xnb</Output>
+      <Time>2020-01-12T02:06:15.4924145+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\popUp.png</Source>
+      <Name>Assets\Textures\UI\HUD\popUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\popUp.xnb</Output>
+      <Time>2020-01-12T02:38:02.8521204+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Landscape\wall.png</Source>
+      <Name>Assets\Textures\Landscape\wall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Landscape\wall.xnb</Output>
+      <Time>2020-01-12T03:03:18.2904613+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Landscape\ceiling.png</Source>
+      <Name>Assets\Textures\Landscape\ceiling</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Landscape\ceiling.xnb</Output>
+      <Time>2020-01-12T12:22:36.7084677+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\Foliage\Ground\ground.png</Source>
+      <Name>Assets\Textures\Foliage\Ground\ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\Foliage\Ground\ground.xnb</Output>
+      <Time>2020-01-12T12:27:51.89495+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Textures\UI\HUD\timer.png</Source>
+      <Name>Assets\Textures\UI\HUD\timer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Textures\UI\HUD\timer.xnb</Output>
+      <Time>2020-01-12T14:24:42.7268458+00:00</Time>
+    </Item>
+    <Item>
+      <Source>Assets\Audio\ragtime.wav</Source>
+      <Name>Assets\Audio\ragtime</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\ragtime.xnb</Output>
+      <Time>2020-01-12T22:37:29.9171666+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{126295C8-DF19-41C6-8384-E55BDF49737E}</ContentProjectGUID>

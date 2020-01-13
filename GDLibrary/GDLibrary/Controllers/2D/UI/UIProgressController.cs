@@ -16,6 +16,7 @@ namespace GDLibrary
         private int maxValue, startValue, currentValue;
         private UITextureObject parentUITextureActor;
         private bool bDirty = false;
+        private CustomerManager customerManager;
         #endregion
 
         #region Properties
@@ -55,13 +56,13 @@ namespace GDLibrary
         }
         #endregion
 
-        public UIProgressController(string id, ControllerType controllerType, int startValue, int maxValue, EventDispatcher eventDispatcher)
+        public UIProgressController(string id, ControllerType controllerType, int startValue, int maxValue, EventDispatcher eventDispatcher, CustomerManager customerManager)
             : base(id, controllerType)
         {
             this.StartValue = startValue;
             this.MaxValue = maxValue;
             this.CurrentValue = startValue;
-
+            this.customerManager = customerManager;
             //register with the event dispatcher for the events of interest
             RegisterForEventHandling(eventDispatcher);
         }
@@ -111,10 +112,10 @@ namespace GDLibrary
         protected virtual void HandleWinLose()
         {
             //if we lose/win all health then generate an event here that will be handled by SoundManager (play win/lose sound) and other game components.
-
+           
             if (this.currentValue == this.maxValue)
             {
-                //send "win" event
+                EventDispatcher.Publish(new EventData(EventActionType.OnCustomerChanged, EventCategoryType.Customer));
             }
             else if (this.currentValue == 0)
             {

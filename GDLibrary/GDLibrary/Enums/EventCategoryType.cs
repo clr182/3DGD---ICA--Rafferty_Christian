@@ -37,6 +37,7 @@ namespace GDLibrary
         Video,
         TextRender,
 
-        Cash
+        Cash,
+        Customer,
     }
 }

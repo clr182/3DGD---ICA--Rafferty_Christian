@@ -230,8 +230,8 @@ Wave Bank
 
     Wave
     {
-        Name = boing;
-        File = boing.wav;
+        Name = ragtime;
+        File = ragtime.wav;
         Build Settings Last Modified Low = 809922770;
         Build Settings Last Modified High = 30430317;
 
@@ -262,7 +262,7 @@ Sound Bank
 
     Sound
     {
-        Name = boing;
+        Name = ragtime;
         Volume = -1200;
         Pitch = 0;
         Priority = 0;
@@ -298,7 +298,7 @@ Sound Bank
                 {
                     Bank Name = WaveBank1;
                     Bank Index = 0;
-                    Entry Name = boing;
+                    Entry Name = ragtime;
                     Entry Index = 0;
                     Weight = 255;
                     Weight Min = 0;
@@ -309,7 +309,7 @@ Sound Bank
 
     Cue
     {
-        Name = boing;
+        Name = ragtime;
 
         Variation
         {
@@ -320,7 +320,7 @@ Sound Bank
 
         Sound Entry
         {
-            Name = boing;
+            Name = ragtime;
             Index = 0;
             Weight Min = 0;
             Weight Max = 255;

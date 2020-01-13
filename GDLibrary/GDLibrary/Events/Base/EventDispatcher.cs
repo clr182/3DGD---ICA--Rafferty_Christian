@@ -36,6 +36,7 @@ namespace GDLibrary
         public delegate void VideoEventHandler(EventData eventData);
         public delegate void TextRenderEventHandler(EventData eventData);
         public delegate void CashManagerHandler(EventData eventData);
+        public delegate void CustomerManagerHandler(EventData eventData);
 
         //an event is either null (not yet happened) or non-null - when the event occurs the delegate reads through its list and calls all the listening functions
         public event CameraEventHandler CameraChanged;
@@ -52,7 +53,8 @@ namespace GDLibrary
         public event DebugEventHandler DebugChanged;
         public event VideoEventHandler VideoChanged;
         public event TextRenderEventHandler TextRenderChanged;
-        public event CashManagerHandler CashEvent;
+        public event CashManagerHandler CashChanged;
+        public event CustomerManagerHandler CustomerChanged;
 
 
         public EventDispatcher(Game game, int initialSize)
@@ -153,7 +155,9 @@ namespace GDLibrary
                 case EventCategoryType.Cash:
                     OnCashChanged(eventData);
                     break;
-
+                case EventCategoryType.Customer:
+                    OnCustomerChanged(eventData);
+                    break;
                 default:
                     break;
             }
@@ -259,7 +263,12 @@ namespace GDLibrary
 
         protected virtual void OnCashChanged(EventData eventData)
         {
-            CashEvent?.Invoke(eventData);
+            CashChanged?.Invoke(eventData);
+        }
+
+        protected virtual void OnCustomerChanged(EventData eventData)
+        {
+            CustomerChanged?.Invoke(eventData);
         }
     }
 }
