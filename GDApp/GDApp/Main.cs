@@ -2,6 +2,7 @@ using GDLibrary;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 
@@ -28,6 +29,7 @@ namespace GDApp
         private ContentDictionary<Model> modelDictionary;
         private ContentDictionary<Texture2D> textureDictionary;
         private ContentDictionary<SpriteFont> fontDictionary;
+        private ContentDictionary<SoundEffect> soundDictionary;
         private Dictionary<string, RailParameters> railDictionary;
         private Dictionary<string, Track3D> track3DDictionary;
         private Dictionary<string, EffectParameters> effectDictionary;
@@ -56,12 +58,14 @@ namespace GDApp
         private float cashRegisterFloat = 123770;
         private IActor drivableModelObject;
         private List<CollidablePrimitiveObject> moneyList= new List<CollidablePrimitiveObject>();
+        private readonly List<string> soundEffectList = new List<String>();
 
         public UITextureObject QueueCounter;
         private TimeManager timeManager;
         private UITextureObject popUpDialogBox;
         private UITextureObject timerBox;
         private UIProgressController uiProgressController;
+        private int customerListCount;
         #endregion
 
         #region Constructors
@@ -220,10 +224,11 @@ namespace GDApp
                 ControllerType.UIProgress, 0, 10, this.eventDispatcher, this.customerManager);
             #endregion
 
+
             #region Customer manager
             EffectParameters effectParameters = this.effectDictionary[AppData.UnlitTexturedEffectID];
             this.customerManager = new CustomerManager(this, this.eventDispatcher, StatusType.Drawn,
-                this.customers, this.uiProgressController, this.object3DManager);
+                this.customers, this.uiProgressController, this.object3DManager, this.customerListCount);
             Components.Add(this.customerManager);
             //InitializeNumberBlocks();
             #endregion
@@ -291,12 +296,9 @@ namespace GDApp
             {
                 this.object3DManager.Add(actor);
             }
-
-           
         }
 
-
-
+       
 
         private void InitializeUI()
         {
@@ -343,8 +345,7 @@ namespace GDApp
                 new Integer2(25, 25)
             );
 
-            string queueCount = this.customers.Count.ToString();
-
+           
             text = new UITextObject(
                 "QueueText",
                 ActorType.UIText,
@@ -353,7 +354,7 @@ namespace GDApp
                 Color.GreenYellow,
                 SpriteEffects.None,
                 0.1f,
-                queueCount,
+                this.customerManager.ListNo.ToString(),
                 this.fontDictionary["menu"]
                 );
             this.uiManager.Add(text);
@@ -1070,12 +1071,14 @@ namespace GDApp
         {
             this.modelDictionary = new ContentDictionary<Model>("model dictionary", this.Content);
             this.textureDictionary = new ContentDictionary<Texture2D>("texture dictionary", this.Content);
-            this.fontDictionary = new ContentDictionary<SpriteFont>("font dictionary", this.Content);       
+            this.fontDictionary = new ContentDictionary<SpriteFont>("font dictionary", this.Content);
+            this.soundDictionary = new ContentDictionary<SoundEffect>("Sound Effect Dictionary", this.Content);
             this.railDictionary = new Dictionary<string, RailParameters>();
             this.track3DDictionary = new Dictionary<string, Track3D>();
             this.effectDictionary = new Dictionary<string, EffectParameters>();
             this.vertexDictionary = new Dictionary<string, IVertexData>();
             this.objectArchetypeDictionary = new Dictionary<string, DrawnActor3D>();
+            
         }
         #endregion
 
@@ -1116,6 +1119,7 @@ namespace GDApp
             LoadFonts();
             LoadRails();
             LoadTracks();
+            LoadAudio();
 
             LoadStandardVertices();
             LoadBillboardVertices();
@@ -1305,6 +1309,12 @@ namespace GDApp
 #if DEBUG
             this.fontDictionary.Load("debugFont", "Assets/Debug/Fonts/debugFont");
 #endif
+        }
+
+        private void LoadAudio()
+        {
+            this.soundDictionary.Load("ragtime", "Assets/Audio/ragtime");
+            this.soundDictionary.Load("chching", "Assets/Audio/chching");
         }
 
         private void LoadTextures()
@@ -1861,8 +1871,13 @@ namespace GDApp
             if (this.keyboardManager.IsFirstKeyPress(Keys.B))
             {
                 //add event to play mouse click
-                object[] additionalParameters = { "ragtime" };
-                EventDispatcher.Publish(new EventData(EventActionType.OnPlay, EventCategoryType.Sound2D, additionalParameters));
+                object[] additionalParameters = { "chching" };
+
+
+                EventDispatcher.Publish(new EventData(EventActionType.OnStart, EventCategoryType.Sound2D, additionalParameters));
+
+                //this.soundManager.PlayCue("ragtime");
+
             }
         }
         private void DemoSetControllerPlayStatus()

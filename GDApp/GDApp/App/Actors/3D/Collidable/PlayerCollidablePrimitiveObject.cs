@@ -63,9 +63,9 @@ namespace GDLibrary
                 //do something based on the zone type - see Main::InitializeCollidableZones() for ID
                 if (simpleZoneObject.ID.Equals("camera trigger zone 1"))
                 {
-                    //publish an event e.g sound, health progress
-                    object[] additionalParameters = { "ragtime" };
-                    EventDispatcher.Publish(new EventData(EventActionType.OnPlay, EventCategoryType.Sound2D, additionalParameters));
+                   
+
+                   
                 }
 
                 //IMPORTANT - setting this to null means that the ApplyInput() method will get called and the player can move through the zone.

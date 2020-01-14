@@ -16,13 +16,21 @@ namespace GDLibrary
         private float customersCash;
         private UIProgressController uiProgressController;
         private ObjectManager object3DManager;
-        private EffectParameters effectParameters;
-        private ContentDictionary<Texture2D> textureDictionary;
-        private Dictionary<string, EffectParameters> effectDictionary;
-        private Dictionary<string, IVertexData> vertexDictionary;
+        private int listNo;
         #endregion
 
+        public int ListNo
+        {
+            get
+            {
+                return this.listNo;
+            }
+            set
+            {
 
+                this.listNo = value;
+            }
+        }
         public float CustomersCash
         {
             get
@@ -66,13 +74,15 @@ namespace GDLibrary
             StatusType statusType,
             Queue<PrimitiveObject> collidablePrimitiveObject,
             UIProgressController uiProgressController,
-            ObjectManager object3DManager
+            ObjectManager object3DManager,
+            int listNo
             ) : base(game, eventDispatcher, statusType)
         {
             this.customerQueue = collidablePrimitiveObject;
             this.customersCash = setRandomCash();
             this.uiProgressController = uiProgressController;
             this.object3DManager = object3DManager;
+            this.listNo = 6;
         }
 
         private float setRandomCash()
@@ -104,34 +114,29 @@ namespace GDLibrary
             }
             return false;
         }
-
-
-
+        
         public void moveQueue()
         {
-           
-
-
-            for(int i = 0; i < 1; i++)
+            for (int i = 0; i < 1; i++)
             {
-
-                //if (actor.ID == "character1")
-                //{
-                //    actor.Transform.Translation = new Vector3(40, 40, 40);
-                //}
                 if (this.customerQueue.Count != 0)
                 {
                     if (this.customerQueue.First().ActorType == ActorType.Customer)
                     {
-                        this.customerQueue.First().Transform.Translation = new Vector3(40, 40, 40);
+                        this.customerQueue.First().Transform.Translation = new Vector3(60, 60, 60);
                         this.customerQueue.Dequeue();
+                        if (this.customerQueue.Count != 0)
+                        {
+                            this.customerQueue.First().Transform.Translation = new Vector3(30, 12, 0);
+                        }
                     }
                 }
-                
             }
+        }
 
-            //iterator<PrimitiveObject> = this.customerQueue.
-
+        public void changeListStatus()
+        {
+            this.listNo--;
         }
 
 
@@ -141,14 +146,13 @@ namespace GDLibrary
             if (eventData.EventType == EventActionType.OnCustomerChanged)
             {
                 moveQueue();
+                changeListStatus();
                 this.uiProgressController.CurrentValue = 0;
             }
 
         }
 
-
-
-
+        
         protected override void RegisterForEventHandling(EventDispatcher eventDispatcher)
         {
             eventDispatcher.CustomerChanged += EventDispatcher_CustomerChanged;

@@ -946,6 +946,15 @@
       <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\ragtime.xnb</Output>
       <Time>2020-01-12T22:37:29.9171666+00:00</Time>
     </Item>
+    <Item>
+      <Source>Assets\Audio\chching.wav</Source>
+      <Name>Assets\Audio\chching</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Christian\Desktop\IndividualGame\3DGD - ICA - v1.1\3DGD---ICA--Rafferty_Christian\GDApp\GDApp\bin\x86\Debug\Content\Assets\Audio\chching.xnb</Output>
+      <Time>2020-01-13T23:51:19.1267451+00:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{126295C8-DF19-41C6-8384-E55BDF49737E}</ContentProjectGUID>
